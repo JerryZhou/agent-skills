@@ -90,7 +90,7 @@ Cursor Team：Dashboard → Plugins → Import `https://github.com/open-winmale/
 | Plugin | 用途 | 含技能 |
 |--------|------|--------|
 | `winmale-skillhub` | 管家：凭证、目录、升级 | `wm-skillhub` |
-| `winmale-stock-check` | 个股核对 | `wm-company-card` `wm-company-business` `wm-valuation` `wm-notice-radar` `wm-dividend-quality` `wm-debt-safety` `wm-cashflow-quality` `wm-revenue-profit` `wm-discover` |
+| `winmale-stock-check` | 个股核对 | `wm-company-card` `wm-notice-radar` `wm-dividend-quality` `wm-debt-safety` `wm-cashflow-quality` `wm-revenue-profit` `wm-discover` |
 | `winmale-my-desk` | 投研台 | `wm-watchlist` `wm-reminder` `wm-screen-index` `wm-backtest` |
 
 **建议顺序**：先装管家 → 再装「个股核对」或「投研台」。

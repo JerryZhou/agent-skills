@@ -683,6 +683,61 @@ def print_result_or_full(raw: str, out_mode: str, *, result_key: str = "result")
         print(json.dumps(r, ensure_ascii=False, indent=2))
 
 
+def read_pack_version(pack: Path) -> str:
+    """Local Pack semver: .wm-skill-meta.json → manifest.json → SKILL.md frontmatter."""
+    for name in (".wm-skill-meta.json", "manifest.json"):
+        f = pack / name
+        if f.is_file():
+            try:
+                return str(json.loads(f.read_text(encoding="utf-8")).get("version") or "").strip()
+            except Exception:
+                pass
+    skill = pack / "SKILL.md"
+    if skill.is_file():
+        try:
+            m = re.search(
+                r"^version:\s*[\"']?([^\"'\n]+)",
+                skill.read_text(encoding="utf-8"),
+                re.M,
+            )
+            if m:
+                return m.group(1).strip()
+        except Exception:
+            pass
+    return ""
+
+
+def emit_skill_upgrade_notice(raw: str) -> None:
+    """Stderr hint when skills/run says the local Pack is stale (visible with --result)."""
+    try:
+        d = json.loads(raw)
+    except Exception:
+        return
+    if not isinstance(d, dict):
+        return
+    data = d.get("data") if isinstance(d.get("data"), dict) else {}
+    meta = d.get("meta") if isinstance(d.get("meta"), dict) else {}
+    result = data.get("result") if isinstance(data.get("result"), dict) else {}
+    up = data.get("skill_upgrade") or meta.get("skill_upgrade")
+    if not isinstance(up, dict):
+        up = result.get("skill_upgrade") if isinstance(result, dict) else None
+    if not isinstance(up, dict) or not up.get("stale"):
+        return
+    sid = str(up.get("skill_id") or "").strip()
+    client = str(up.get("client_version") or "").strip()
+    latest = str(up.get("latest_version") or "").strip()
+    how = str(up.get("how") or "").strip()
+    changelog = str(up.get("changelog") or "").strip()
+    eprint(
+        f"wm-skill-run: UPGRADE {sid} local {client} < catalog {latest}. "
+        "Upgrade the Pack, re-read SKILL.md, then retry."
+    )
+    if how:
+        eprint(f"wm-skill-run: {how}")
+    if changelog:
+        eprint(f"wm-skill-run: changelog: {changelog}")
+
+
 def skills_root_from_hub_scripts(scripts_dir: Path) -> Path:
     return scripts_dir.parent.parent
 

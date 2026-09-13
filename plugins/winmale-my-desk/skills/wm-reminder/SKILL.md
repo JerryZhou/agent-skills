@@ -1,7 +1,7 @@
 ---
 name: wm-reminder
 display_name: "到时候提醒我"
-version: 0.2.6
+version: 0.2.7
 description: 列出/创建/管理我的研究提醒；支持个股、选股、榜单与任意 XS（call return 控推送）。不是调度引擎文档。
 ---
 
@@ -16,6 +16,7 @@ description: 列出/创建/管理我的研究提醒；支持个股、选股、�
 ## 何时不要用 (When NOT to use)
 
 - **仅整理/查看自选股票分组** → 使用 `wm-watchlist`（关注列表）
+- **自选买卖点、备注、分组盘中提醒开关** → 使用 `wm-watchlist`（`annotate` / `alert_enable`）
 - **实时现价或行情触发查询** → 使用 `wm-company-card`（公司卡片）
 
 ## 库主人

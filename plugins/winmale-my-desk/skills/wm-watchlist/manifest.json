@@ -1,12 +1,12 @@
 {
   "id": "wm-watchlist",
   "name": "我的关注列表",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "tier": 1,
   "visibility": "opt_in",
   "l1_family": "user_asset",
   "asset_domain": "watchlist",
-  "description": "查看或整理我的关注列表：返回公司名称、分组与关键指标快照，不是裸代码列表。加/删/分组加删用增量；整理前默认预览。统一跨市场 SoT。",
+  "description": "查看或整理我的关注列表：名称、分组、买卖点与备注、分组盘中提醒。加/删/分组用增量；整理前默认预览。统一跨市场 SoT。",
   "inputs_schema": {
     "type": "object",
     "properties": {
@@ -21,6 +21,9 @@
           "group_create",
           "group_rename",
           "group_delete",
+          "annotate",
+          "alert_enable",
+          "alert_disable",
           "organize"
         ],
         "default": "view"
@@ -55,6 +58,18 @@
       },
       "group_name": {
         "type": "string"
+      },
+      "buy_price": {
+        "type": "number",
+        "description": "action=annotate 买点绝对价；省略保留现值；0=清除"
+      },
+      "sell_price": {
+        "type": "number",
+        "description": "action=annotate 卖点绝对价；省略保留现值；0=清除"
+      },
+      "note": {
+        "type": "string",
+        "description": "action=annotate 标的备注，最长 80 字；省略保留现值；空=清除"
       },
       "metrics": {
         "type": "array",
@@ -113,6 +128,17 @@
     "group_delete": [
       "user:watchlist:write"
     ],
+    "annotate": [
+      "user:watchlist:write"
+    ],
+    "alert_enable": [
+      "user:watchlist:write",
+      "user:reminder:write"
+    ],
+    "alert_disable": [
+      "user:watchlist:write",
+      "user:reminder:write"
+    ],
     "organize": [
       "user:watchlist:write"
     ]
@@ -121,11 +147,12 @@
   "category": "组合与跟踪",
   "author": "赢麻了官方",
   "official": true,
-  "summary": "查看或整理我的关注列表（名称、分组与关键指标）。",
+  "summary": "查看或整理我的关注列表（名称、分组、买卖点/备注与分组提醒）。",
   "sample_prompts": [
     "看看我的关注列表里有什么。",
     "把某某加进关注列表。",
-    "把某某从关注列表删掉。",
+    "给茅台设个买点和备注。",
+    "打开重点关注分组的买卖点提醒。",
     "整理一下我的关注分组。"
   ],
   "expertise_tags": [

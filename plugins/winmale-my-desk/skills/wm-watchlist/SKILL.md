@@ -1,8 +1,8 @@
 ---
 name: wm-watchlist
 display_name: "我的关注列表"
-version: 0.2.7
-description: 查看或整理我的关注列表：返回公司名称、分组与关键指标快照，不是裸代码列表。加/删/分组加删用增量；整理前默认预览。统一跨市场 SoT。
+version: 0.3.0
+description: 查看或整理我的关注列表：名称、分组、买卖点与备注、分组盘中提醒。加/删/分组用增量；整理前默认预览。统一跨市场 SoT。
 ---
 
 # 我的关注列表
@@ -12,11 +12,14 @@ description: 查看或整理我的关注列表：返回公司名称、分组与�
 - 「我关注了哪些」「池子里现在怎样」
 - 「把茅台加进自选 / 从自选删掉 / 建分组 / 整理分组」（先预览再确认）
 - 「删组 / 改名」
+- 「给茅台设买点/卖点/备注」
+- 「打开/关闭某分组的盘中买卖点提醒」
 
 ## 何时不要用 (When NOT to use)
 
 - **全市场条件选股/按指标找股票** → 使用 `wm-screen-index`（条件选股）
-- **单只股票的深入基本面/估值/多期三表** → 使用 `wm-company-card` / `wm-valuation` / `wm-statements`
+- **单只股票的基本面/估值/多期三表事实** → 使用 `wm-company-card` / `wm-statements`
+- **非自选分组的一般研究提醒**（财报窗口、自定义 XS） → 使用 `wm-reminder`
 
 ## 库主人
 
@@ -34,6 +37,7 @@ description: 查看或整理我的关注列表：返回公司名称、分组与�
 
 - Scope：`analysis:skills:run` + `user:watchlist:read`
 - 写操作另需：`user:watchlist:write`
+- 分组买卖点提醒另需：`user:reminder:read` + `user:reminder:write`
 
 ## 调用
 
@@ -53,6 +57,42 @@ bash .cursor/skills/wm-skillhub/scripts/wm.sh run wm-watchlist \
 单市场投影：`"market": "cn"`。
 
 **读结果**：`holdings` / `groups`（HTTP：`data.result.holdings`）。
+
+`holdings[]` 含 `note` / `buy_price` / `sell_price`（0 = 未设）。`groups[]` 含 `alert_subscription_id`、`alert_bound`（是否已绑定分组提醒）。
+
+### 买卖点与备注（跟股票走）
+
+整份覆盖：未传的字段保留现值；显式 `0` / `""` 表示清除。买点须低于卖点。备注最长 80 字。
+
+```json
+{ "args": { "action": "annotate", "symbol": "600519", "buy_price": 1380, "sell_price": 1600, "note": "等回调" } }
+```
+
+只改备注：
+
+```json
+{ "args": { "action": "annotate", "symbol": "600519", "note": "中报后复核" } }
+```
+
+若该股所在分组已开提醒，会同步盘中条件。对人须再 `view`。
+
+### 分组盘中提醒（跟分组走）
+
+产品语义：**买卖点/备注跟股票**；**提醒开关跟分组**。订阅名 `自选·{组名}·买卖点`，`pr_stock.match_all=false`，盘中实时、一天最多三次。
+
+**「全部自选」不能开提醒**（不要传 `group_id=all`）。先 `view` 取具体 `groups[].id`。
+
+```json
+{ "args": { "action": "alert_enable", "group_id": "<id>" } }
+```
+
+```json
+{ "args": { "action": "alert_disable", "group_id": "<id>" } }
+```
+
+关闭会 Cancel 订阅，**保留绑定**，再开走 `alert_enable`。删组会停掉并删除对应订阅。
+
+回执含 `deeplinks`（自选 + 订阅管理）；对人原样贴 `markdown`。
 
 ### 增量加票
 
@@ -144,3 +184,5 @@ bash .cursor/skills/wm-skillhub/scripts/wm.sh run wm-watchlist \
 - 未确认就 `confirm=true` 落库
 - 与「按条件选股」混淆
 - 再读 `data.result.result`（已改为 `apply`）
+- 对「全部自选」走 `alert_enable`（提醒只能绑具体分组）
+- 把自选买卖点提醒做成 `wm-reminder` 裸 `pr_stock`（须走本技能，才能绑定 `alert_subscription_id`）

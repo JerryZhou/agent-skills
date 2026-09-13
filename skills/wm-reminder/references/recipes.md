@@ -41,6 +41,7 @@ SETXS(c, reminder.create(MAP{
 }))
 # c: MAP{sub_id, …}
 SETXS(sid, STRING(c["sub_id"]))
+# update patch 不要带 type/catalog/symbol（create 专用；宿主会剥掉 type 等，但仍勿整份 create spec 原样塞）
 reminder.update(sid, MAP{"name": "tmp_u", "reason": "u", "idempotency_key": "rem-u-" + rid})
 reminder.cancel(sid, MAP{"reason": "c", "idempotency_key": "rem-can-" + rid})
 reminder.enable(sid, MAP{"reason": "e", "idempotency_key": "rem-en-" + rid})

@@ -7,57 +7,57 @@
 
 | id | code | cn | source |
 |----|------|----|--------|
-| `NP_5Y_AVG` | `$NP_5Y_AVG` | 近5年利润(TTM)均值 | screen.xs |
-| `NP_5Y_AVG_LAST` | `$NP_5Y_AVG_LAST` | 近5年利润(TTM)均值 | screen.xs |
-| `NP_5Y_MIN` | `$NP_5Y_MIN` | 近5年利润(TTM)最低 | screen.xs |
-| `NP_5Y_MIN_LAST` | `$NP_5Y_MIN_LAST` | 近5年利润(TTM)最低 | screen.xs |
-| `NP_AR_10Y_AVG` | `$NP_AR_10Y_AVG` | 近10年利润(TTM)年化增长均值 | screen.xs |
-| `NP_AR_10Y_AVG_LAST` | `$NP_AR_10Y_AVG_LAST` | 近10年利润(TTM)年化增长均值 | screen.xs |
-| `NP_AR_10Y_MIN` | `$NP_AR_10Y_MIN` | 近10年利润(TTM)年化增长最低 | screen.xs |
-| `NP_AR_10Y_MIN_LAST` | `$NP_AR_10Y_MIN_LAST` | 近10年利润(TTM)年化增长最低 | screen.xs |
-| `NP_AR_3Y` | `$NP_AR_3Y` | 近3年利润(TTM)年化增长序列 | screen.xs |
-| `NP_AR_3Y_AVG` | `$NP_AR_3Y_AVG` | 近3年利润(TTM)年化增长均值 | screen.xs |
-| `NP_AR_3Y_AVG_LAST` | `$NP_AR_3Y_AVG_LAST` | 近3年利润(TTM)年化增长均值 | screen.xs |
-| `NP_AR_3Y_LAST` | `$NP_AR_3Y_LAST` | 近3年利润(TTM)年化增长序列 | screen.xs |
-| `NP_AR_3Y_MIN` | `$NP_AR_3Y_MIN` | 近3年利润(TTM)年化增长最低 | screen.xs |
-| `NP_AR_3Y_MIN_LAST` | `$NP_AR_3Y_MIN_LAST` | 近3年利润(TTM)年化增长最低 | screen.xs |
-| `NP_AR_3Y_TREND` | `$NP_AR_3Y_TREND` | 近3年利润(TTM)年化增长趋势 | screen.xs |
-| `NP_AR_3Y_TREND_LAST` | `$NP_AR_3Y_TREND_LAST` | 近3年利润(TTM)年化增长趋势 | screen.xs |
-| `NP_AR_5Y_AVG` | `$NP_AR_5Y_AVG` | 近5年利润(TTM)年化增长均值 | screen.xs |
-| `NP_AR_5Y_AVG_LAST` | `$NP_AR_5Y_AVG_LAST` | 近5年利润(TTM)年化增长均值 | screen.xs |
-| `NP_AR_5Y_MIN` | `$NP_AR_5Y_MIN` | 近5年利润(TTM)年化增长最低 | screen.xs |
-| `NP_AR_5Y_MIN_LAST` | `$NP_AR_5Y_MIN_LAST` | 近5年利润(TTM)年化增长最低 | screen.xs |
+| `NP_5Y_AVG` | `$NP_5Y_AVG` |  | screen.xs |
+| `NP_5Y_AVG_LAST` | `$NP_5Y_AVG_LAST` |  | screen.xs |
+| `NP_5Y_MIN` | `$NP_5Y_MIN` |  | screen.xs |
+| `NP_5Y_MIN_LAST` | `$NP_5Y_MIN_LAST` |  | screen.xs |
+| `NP_AR_10Y_AVG` | `$NP_AR_10Y_AVG` |  | screen.xs |
+| `NP_AR_10Y_AVG_LAST` | `$NP_AR_10Y_AVG_LAST` |  | screen.xs |
+| `NP_AR_10Y_MIN` | `$NP_AR_10Y_MIN` |  | screen.xs |
+| `NP_AR_10Y_MIN_LAST` | `$NP_AR_10Y_MIN_LAST` |  | screen.xs |
+| `NP_AR_3Y` | `$NP_AR_3Y` |  | screen.xs |
+| `NP_AR_3Y_AVG` | `$NP_AR_3Y_AVG` |  | screen.xs |
+| `NP_AR_3Y_AVG_LAST` | `$NP_AR_3Y_AVG_LAST` |  | screen.xs |
+| `NP_AR_3Y_LAST` | `$NP_AR_3Y_LAST` |  | screen.xs |
+| `NP_AR_3Y_MIN` | `$NP_AR_3Y_MIN` |  | screen.xs |
+| `NP_AR_3Y_MIN_LAST` | `$NP_AR_3Y_MIN_LAST` |  | screen.xs |
+| `NP_AR_3Y_TREND` | `$NP_AR_3Y_TREND` |  | screen.xs |
+| `NP_AR_3Y_TREND_LAST` | `$NP_AR_3Y_TREND_LAST` |  | screen.xs |
+| `NP_AR_5Y_AVG` | `$NP_AR_5Y_AVG` |  | screen.xs |
+| `NP_AR_5Y_AVG_LAST` | `$NP_AR_5Y_AVG_LAST` |  | screen.xs |
+| `NP_AR_5Y_MIN` | `$NP_AR_5Y_MIN` |  | screen.xs |
+| `NP_AR_5Y_MIN_LAST` | `$NP_AR_5Y_MIN_LAST` |  | screen.xs |
 | `NP_TTM` | `$NP_TTM` |  | screen.xs |
-| `TR_10Y_AVG` | `$TR_10Y_AVG` | 近10年营收(TTM)均值 | screen.xs |
-| `TR_10Y_AVG_LAST` | `$TR_10Y_AVG_LAST` | 近10年营收(TTM)均值 | screen.xs |
-| `TR_10Y_MIN` | `$TR_10Y_MIN` | 近10年营收(TTM)最低 | screen.xs |
-| `TR_10Y_MIN_LAST` | `$TR_10Y_MIN_LAST` | 近10年营收(TTM)最低 | screen.xs |
-| `TR_3Y` | `$TR_3Y` | 近3年营收(TTM)序列 | screen.xs |
-| `TR_3Y_AVG` | `$TR_3Y_AVG` | 近3年营收(TTM)均值 | screen.xs |
-| `TR_3Y_AVG_LAST` | `$TR_3Y_AVG_LAST` | 近3年营收(TTM)均值 | screen.xs |
-| `TR_3Y_LAST` | `$TR_3Y_LAST` | 近3年营收(TTM)序列 | screen.xs |
-| `TR_3Y_MIN` | `$TR_3Y_MIN` | 近3年营收(TTM)最低 | screen.xs |
-| `TR_3Y_MIN_LAST` | `$TR_3Y_MIN_LAST` | 近3年营收(TTM)最低 | screen.xs |
-| `TR_3Y_TREND` | `$TR_3Y_TREND` | 近3年营收(TTM)趋势 | screen.xs |
-| `TR_3Y_TREND_LAST` | `$TR_3Y_TREND_LAST` | 近3年营收(TTM)趋势 | screen.xs |
-| `TR_5Y_AVG` | `$TR_5Y_AVG` | 近5年营收(TTM)均值 | screen.xs |
-| `TR_5Y_AVG_LAST` | `$TR_5Y_AVG_LAST` | 近5年营收(TTM)均值 | screen.xs |
-| `TR_5Y_MIN` | `$TR_5Y_MIN` | 近5年营收(TTM)最低 | screen.xs |
-| `TR_5Y_MIN_LAST` | `$TR_5Y_MIN_LAST` | 近5年营收(TTM)最低 | screen.xs |
-| `TR_AR_10Y_AVG` | `$TR_AR_10Y_AVG` | 近10年营收(TTM)年化增长均值 | screen.xs |
-| `TR_AR_10Y_AVG_LAST` | `$TR_AR_10Y_AVG_LAST` | 近10年营收(TTM)年化增长均值 | screen.xs |
-| `TR_AR_10Y_MIN` | `$TR_AR_10Y_MIN` | 近10年营收(TTM)年化增长最低 | screen.xs |
-| `TR_AR_10Y_MIN_LAST` | `$TR_AR_10Y_MIN_LAST` | 近10年营收(TTM)年化增长最低 | screen.xs |
-| `TR_AR_3Y` | `$TR_AR_3Y` | 近3年营收(TTM)年化增长序列 | screen.xs |
-| `TR_AR_3Y_AVG` | `$TR_AR_3Y_AVG` | 近3年营收(TTM)年化增长均值 | screen.xs |
-| `TR_AR_3Y_AVG_LAST` | `$TR_AR_3Y_AVG_LAST` | 近3年营收(TTM)年化增长均值 | screen.xs |
-| `TR_AR_3Y_LAST` | `$TR_AR_3Y_LAST` | 近3年营收(TTM)年化增长序列 | screen.xs |
-| `TR_AR_3Y_MIN` | `$TR_AR_3Y_MIN` | 近3年营收(TTM)年化增长最低 | screen.xs |
-| `TR_AR_3Y_MIN_LAST` | `$TR_AR_3Y_MIN_LAST` | 近3年营收(TTM)年化增长最低 | screen.xs |
-| `TR_AR_3Y_TREND` | `$TR_AR_3Y_TREND` | 近3年营收(TTM)年化增长趋势 | screen.xs |
-| `TR_AR_3Y_TREND_LAST` | `$TR_AR_3Y_TREND_LAST` | 近3年营收(TTM)年化增长趋势 | screen.xs |
-| `TR_AR_5Y_AVG` | `$TR_AR_5Y_AVG` | 近5年营收(TTM)年化增长均值 | screen.xs |
-| `TR_AR_5Y_AVG_LAST` | `$TR_AR_5Y_AVG_LAST` | 近5年营收(TTM)年化增长均值 | screen.xs |
-| `TR_AR_5Y_MIN` | `$TR_AR_5Y_MIN` | 近5年营收(TTM)年化增长最低 | screen.xs |
-| `TR_AR_5Y_MIN_LAST` | `$TR_AR_5Y_MIN_LAST` | 近5年营收(TTM)年化增长最低 | screen.xs |
+| `TR_10Y_AVG` | `$TR_10Y_AVG` |  | screen.xs |
+| `TR_10Y_AVG_LAST` | `$TR_10Y_AVG_LAST` |  | screen.xs |
+| `TR_10Y_MIN` | `$TR_10Y_MIN` |  | screen.xs |
+| `TR_10Y_MIN_LAST` | `$TR_10Y_MIN_LAST` |  | screen.xs |
+| `TR_3Y` | `$TR_3Y` |  | screen.xs |
+| `TR_3Y_AVG` | `$TR_3Y_AVG` |  | screen.xs |
+| `TR_3Y_AVG_LAST` | `$TR_3Y_AVG_LAST` |  | screen.xs |
+| `TR_3Y_LAST` | `$TR_3Y_LAST` |  | screen.xs |
+| `TR_3Y_MIN` | `$TR_3Y_MIN` |  | screen.xs |
+| `TR_3Y_MIN_LAST` | `$TR_3Y_MIN_LAST` |  | screen.xs |
+| `TR_3Y_TREND` | `$TR_3Y_TREND` |  | screen.xs |
+| `TR_3Y_TREND_LAST` | `$TR_3Y_TREND_LAST` |  | screen.xs |
+| `TR_5Y_AVG` | `$TR_5Y_AVG` |  | screen.xs |
+| `TR_5Y_AVG_LAST` | `$TR_5Y_AVG_LAST` |  | screen.xs |
+| `TR_5Y_MIN` | `$TR_5Y_MIN` |  | screen.xs |
+| `TR_5Y_MIN_LAST` | `$TR_5Y_MIN_LAST` |  | screen.xs |
+| `TR_AR_10Y_AVG` | `$TR_AR_10Y_AVG` |  | screen.xs |
+| `TR_AR_10Y_AVG_LAST` | `$TR_AR_10Y_AVG_LAST` |  | screen.xs |
+| `TR_AR_10Y_MIN` | `$TR_AR_10Y_MIN` |  | screen.xs |
+| `TR_AR_10Y_MIN_LAST` | `$TR_AR_10Y_MIN_LAST` |  | screen.xs |
+| `TR_AR_3Y` | `$TR_AR_3Y` |  | screen.xs |
+| `TR_AR_3Y_AVG` | `$TR_AR_3Y_AVG` |  | screen.xs |
+| `TR_AR_3Y_AVG_LAST` | `$TR_AR_3Y_AVG_LAST` |  | screen.xs |
+| `TR_AR_3Y_LAST` | `$TR_AR_3Y_LAST` |  | screen.xs |
+| `TR_AR_3Y_MIN` | `$TR_AR_3Y_MIN` |  | screen.xs |
+| `TR_AR_3Y_MIN_LAST` | `$TR_AR_3Y_MIN_LAST` |  | screen.xs |
+| `TR_AR_3Y_TREND` | `$TR_AR_3Y_TREND` |  | screen.xs |
+| `TR_AR_3Y_TREND_LAST` | `$TR_AR_3Y_TREND_LAST` |  | screen.xs |
+| `TR_AR_5Y_AVG` | `$TR_AR_5Y_AVG` |  | screen.xs |
+| `TR_AR_5Y_AVG_LAST` | `$TR_AR_5Y_AVG_LAST` |  | screen.xs |
+| `TR_AR_5Y_MIN` | `$TR_AR_5Y_MIN` |  | screen.xs |
+| `TR_AR_5Y_MIN_LAST` | `$TR_AR_5Y_MIN_LAST` |  | screen.xs |
 | `TR_TTM` | `$TR_TTM` |  | screen.xs |

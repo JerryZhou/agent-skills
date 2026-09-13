@@ -7,83 +7,83 @@
 
 | id | code | cn | source |
 |----|------|----|--------|
-| `CUR_IND_DPPR_10Y_MIN` | `$CUR_IND_DPPR_10Y_MIN` | 行业近10年扣非净利润(TTM)最低 | screen_cn.xs |
-| `CUR_IND_DPPR_3Y_MIN` | `$CUR_IND_DPPR_3Y_MIN` | 行业近3年扣非净利润(TTM)最低 | screen_cn.xs |
-| `CUR_IND_DPPR_5Y_MIN` | `$CUR_IND_DPPR_5Y_MIN` | 行业近5年扣非净利润(TTM)最低 | screen_cn.xs |
-| `CUR_IND_DPPR_AR_10Y_MIN` | `$CUR_IND_DPPR_AR_10Y_MIN` | 行业近10年扣非净利润(TTM)年化增长最低 | screen_cn.xs |
-| `CUR_IND_DPPR_AR_3Y_MIN` | `$CUR_IND_DPPR_AR_3Y_MIN` | 行业近3年扣非净利润(TTM)年化增长最低 | screen_cn.xs |
-| `CUR_IND_DPPR_AR_5Y_MIN` | `$CUR_IND_DPPR_AR_5Y_MIN` | 行业近5年扣非净利润(TTM)年化增长最低 | screen_cn.xs |
-| `CUR_IND_GMR_10Y_AVG` | `$CUR_IND_GMR_10Y_AVG` | 行业近10年毛利率(TTM)均值 | screen.xs |
-| `CUR_IND_GMR_10Y_MIN` | `$CUR_IND_GMR_10Y_MIN` | 行业近10年毛利率(TTM)最低 | screen.xs |
-| `CUR_IND_GMR_3Y_AVG` | `$CUR_IND_GMR_3Y_AVG` | 行业近3年毛利率(TTM)均值 | screen.xs |
-| `CUR_IND_GMR_3Y_MIN` | `$CUR_IND_GMR_3Y_MIN` | 行业近3年毛利率(TTM)最低 | screen.xs |
-| `CUR_IND_GMR_5Y_AVG` | `$CUR_IND_GMR_5Y_AVG` | 行业近5年毛利率(TTM)均值 | screen.xs |
-| `CUR_IND_GMR_5Y_MIN` | `$CUR_IND_GMR_5Y_MIN` | 行业近5年毛利率(TTM)最低 | screen.xs |
-| `CUR_IND_GMR_PCT` | `$CUR_IND_GMR_PCT` | 行业内毛利率分位 | screen.xs |
-| `CUR_IND_MV_PCT` | `$CUR_IND_MV_PCT` | 行业内总市值分位 | screen.xs |
-| `CUR_IND_MV_SHARE` | `$CUR_IND_MV_SHARE` | 行业内总市值份额 | screen.xs |
-| `CUR_IND_NPM_10Y_AVG` | `$CUR_IND_NPM_10Y_AVG` | 行业近10年净利率(TTM)均值 | screen.xs |
-| `CUR_IND_NPM_10Y_MIN` | `$CUR_IND_NPM_10Y_MIN` | 行业近10年净利率(TTM)最低 | screen.xs |
-| `CUR_IND_NPM_3Y_AVG` | `$CUR_IND_NPM_3Y_AVG` | 行业近3年净利率(TTM)均值 | screen.xs |
-| `CUR_IND_NPM_3Y_MIN` | `$CUR_IND_NPM_3Y_MIN` | 行业近3年净利率(TTM)最低 | screen.xs |
-| `CUR_IND_NPM_5Y_AVG` | `$CUR_IND_NPM_5Y_AVG` | 行业近5年净利率(TTM)均值 | screen.xs |
-| `CUR_IND_NPM_5Y_MIN` | `$CUR_IND_NPM_5Y_MIN` | 行业近5年净利率(TTM)最低 | screen.xs |
-| `CUR_IND_NPM_PCT` | `$CUR_IND_NPM_PCT` | 行业内净利率分位 | screen.xs |
-| `CUR_IND_NPTS_10Y_AVG` | `$CUR_IND_NPTS_10Y_AVG` | 行业近10年归母净利润(TTM)均值 | screen.xs |
-| `CUR_IND_NPTS_10Y_MIN` | `$CUR_IND_NPTS_10Y_MIN` | 行业近10年归母净利润(TTM)最低 | screen.xs |
-| `CUR_IND_NPTS_3Y_AVG` | `$CUR_IND_NPTS_3Y_AVG` | 行业近3年归母净利润(TTM)均值 | screen.xs |
-| `CUR_IND_NPTS_3Y_MIN` | `$CUR_IND_NPTS_3Y_MIN` | 行业近3年归母净利润(TTM)最低 | screen.xs |
-| `CUR_IND_NPTS_5Y_AVG` | `$CUR_IND_NPTS_5Y_AVG` | 行业近5年归母净利润(TTM)均值 | screen.xs |
-| `CUR_IND_NPTS_5Y_MIN` | `$CUR_IND_NPTS_5Y_MIN` | 行业近5年归母净利润(TTM)最低 | screen.xs |
-| `CUR_IND_NPTS_AR_10Y_AVG` | `$CUR_IND_NPTS_AR_10Y_AVG` | 行业近10年归母净利润(TTM)年化增长均值 | screen.xs |
-| `CUR_IND_NPTS_AR_10Y_MIN` | `$CUR_IND_NPTS_AR_10Y_MIN` | 行业近10年归母净利润(TTM)年化增长最低 | screen.xs |
-| `CUR_IND_NPTS_AR_3Y_AVG` | `$CUR_IND_NPTS_AR_3Y_AVG` | 行业近3年归母净利润(TTM)年化增长均值 | screen.xs |
-| `CUR_IND_NPTS_AR_3Y_MIN` | `$CUR_IND_NPTS_AR_3Y_MIN` | 行业近3年归母净利润(TTM)年化增长最低 | screen.xs |
-| `CUR_IND_NPTS_AR_5Y_AVG` | `$CUR_IND_NPTS_AR_5Y_AVG` | 行业近5年归母净利润(TTM)年化增长均值 | screen.xs |
-| `CUR_IND_NPTS_AR_5Y_MIN` | `$CUR_IND_NPTS_AR_5Y_MIN` | 行业近5年归母净利润(TTM)年化增长最低 | screen.xs |
-| `CUR_IND_NP_10Y_AVG` | `$CUR_IND_NP_10Y_AVG` | 行业近10年利润(TTM)均值 | screen.xs |
-| `CUR_IND_NP_10Y_MIN` | `$CUR_IND_NP_10Y_MIN` | 行业近10年利润(TTM)最低 | screen.xs |
-| `CUR_IND_NP_3Y_AVG` | `$CUR_IND_NP_3Y_AVG` | 行业近3年利润(TTM)均值 | screen.xs |
-| `CUR_IND_NP_3Y_MIN` | `$CUR_IND_NP_3Y_MIN` | 行业近3年利润(TTM)最低 | screen.xs |
-| `CUR_IND_NP_5Y_AVG` | `$CUR_IND_NP_5Y_AVG` | 行业近5年利润(TTM)均值 | screen.xs |
-| `CUR_IND_NP_5Y_MIN` | `$CUR_IND_NP_5Y_MIN` | 行业近5年利润(TTM)最低 | screen.xs |
-| `CUR_IND_NP_AR_10Y_AVG` | `$CUR_IND_NP_AR_10Y_AVG` | 行业近10年利润(TTM)年化增长均值 | screen.xs |
-| `CUR_IND_NP_AR_10Y_MIN` | `$CUR_IND_NP_AR_10Y_MIN` | 行业近10年利润(TTM)年化增长最低 | screen.xs |
-| `CUR_IND_NP_AR_3Y_AVG` | `$CUR_IND_NP_AR_3Y_AVG` | 行业近3年利润(TTM)年化增长均值 | screen.xs |
-| `CUR_IND_NP_AR_3Y_MIN` | `$CUR_IND_NP_AR_3Y_MIN` | 行业近3年利润(TTM)年化增长最低 | screen.xs |
-| `CUR_IND_NP_AR_5Y_AVG` | `$CUR_IND_NP_AR_5Y_AVG` | 行业近5年利润(TTM)年化增长均值 | screen.xs |
-| `CUR_IND_NP_AR_5Y_MIN` | `$CUR_IND_NP_AR_5Y_MIN` | 行业近5年利润(TTM)年化增长最低 | screen.xs |
-| `CUR_IND_NP_PCT` | `$CUR_IND_NP_PCT` | 行业内净利润分位 | screen.xs |
-| `CUR_IND_NP_SHARE` | `$CUR_IND_NP_SHARE` | 行业内净利润份额 | screen.xs |
-| `CUR_IND_ROE_10Y_AVG` | `$CUR_IND_ROE_10Y_AVG` | 行业近10年ROE(TTM)均值 | screen.xs |
-| `CUR_IND_ROE_10Y_MIN` | `$CUR_IND_ROE_10Y_MIN` | 行业近10年ROE(TTM)最低 | screen.xs |
-| `CUR_IND_ROE_3Y_AVG` | `$CUR_IND_ROE_3Y_AVG` | 行业近3年ROE(TTM)均值 | screen.xs |
-| `CUR_IND_ROE_3Y_MIN` | `$CUR_IND_ROE_3Y_MIN` | 行业近3年ROE(TTM)最低 | screen.xs |
-| `CUR_IND_ROE_5Y_AVG` | `$CUR_IND_ROE_5Y_AVG` | 行业近5年ROE(TTM)均值 | screen.xs |
-| `CUR_IND_ROE_5Y_MIN` | `$CUR_IND_ROE_5Y_MIN` | 行业近5年ROE(TTM)最低 | screen.xs |
-| `CUR_IND_ROE_DPPR_10Y_MIN` | `$CUR_IND_ROE_DPPR_10Y_MIN` | 行业近10年扣非ROE(TTM)最低 | screen_cn.xs |
-| `CUR_IND_ROE_DPPR_3Y_MIN` | `$CUR_IND_ROE_DPPR_3Y_MIN` | 行业近3年扣非ROE(TTM)最低 | screen_cn.xs |
-| `CUR_IND_ROE_DPPR_5Y_MIN` | `$CUR_IND_ROE_DPPR_5Y_MIN` | 行业近5年扣非ROE(TTM)最低 | screen_cn.xs |
-| `CUR_IND_ROE_PCT` | `$CUR_IND_ROE_PCT` | 行业内ROE分位 | screen.xs |
-| `CUR_IND_TL_RATE_10Y_AVG` | `$CUR_IND_TL_RATE_10Y_AVG` | 行业近10年资产负债率均值 | screen.xs |
-| `CUR_IND_TL_RATE_10Y_MIN` | `$CUR_IND_TL_RATE_10Y_MIN` | 行业近10年资产负债率最低 | screen.xs |
-| `CUR_IND_TL_RATE_3Y_AVG` | `$CUR_IND_TL_RATE_3Y_AVG` | 行业近3年资产负债率均值 | screen.xs |
-| `CUR_IND_TL_RATE_3Y_MIN` | `$CUR_IND_TL_RATE_3Y_MIN` | 行业近3年资产负债率最低 | screen.xs |
-| `CUR_IND_TL_RATE_5Y_AVG` | `$CUR_IND_TL_RATE_5Y_AVG` | 行业近5年资产负债率均值 | screen.xs |
-| `CUR_IND_TL_RATE_5Y_MIN` | `$CUR_IND_TL_RATE_5Y_MIN` | 行业近5年资产负债率最低 | screen.xs |
-| `CUR_IND_TR_10Y_AVG` | `$CUR_IND_TR_10Y_AVG` | 行业近10年营收(TTM)均值 | screen.xs |
-| `CUR_IND_TR_10Y_MIN` | `$CUR_IND_TR_10Y_MIN` | 行业近10年营收(TTM)最低 | screen.xs |
-| `CUR_IND_TR_3Y_AVG` | `$CUR_IND_TR_3Y_AVG` | 行业近3年营收(TTM)均值 | screen.xs |
-| `CUR_IND_TR_3Y_MIN` | `$CUR_IND_TR_3Y_MIN` | 行业近3年营收(TTM)最低 | screen.xs |
-| `CUR_IND_TR_5Y_AVG` | `$CUR_IND_TR_5Y_AVG` | 行业近5年营收(TTM)均值 | screen.xs |
-| `CUR_IND_TR_5Y_MIN` | `$CUR_IND_TR_5Y_MIN` | 行业近5年营收(TTM)最低 | screen.xs |
-| `CUR_IND_TR_AR_10Y_AVG` | `$CUR_IND_TR_AR_10Y_AVG` | 行业近10年营收(TTM)年化增长均值 | screen.xs |
-| `CUR_IND_TR_AR_10Y_MIN` | `$CUR_IND_TR_AR_10Y_MIN` | 行业近10年营收(TTM)年化增长最低 | screen.xs |
-| `CUR_IND_TR_AR_3Y_AVG` | `$CUR_IND_TR_AR_3Y_AVG` | 行业近3年营收(TTM)年化增长均值 | screen.xs |
-| `CUR_IND_TR_AR_3Y_MIN` | `$CUR_IND_TR_AR_3Y_MIN` | 行业近3年营收(TTM)年化增长最低 | screen.xs |
-| `CUR_IND_TR_AR_5Y_AVG` | `$CUR_IND_TR_AR_5Y_AVG` | 行业近5年营收(TTM)年化增长均值 | screen.xs |
-| `CUR_IND_TR_AR_5Y_MIN` | `$CUR_IND_TR_AR_5Y_MIN` | 行业近5年营收(TTM)年化增长最低 | screen.xs |
-| `CUR_IND_TR_PCT` | `$CUR_IND_TR_PCT` | 行业内营收分位 | screen.xs |
-| `CUR_IND_TR_SHARE` | `$CUR_IND_TR_SHARE` | 行业内营收份额 | screen.xs |
+| `CUR_IND_DPPR_10Y_MIN` | `$CUR_IND_DPPR_10Y_MIN` |  | screen_cn.xs |
+| `CUR_IND_DPPR_3Y_MIN` | `$CUR_IND_DPPR_3Y_MIN` |  | screen_cn.xs |
+| `CUR_IND_DPPR_5Y_MIN` | `$CUR_IND_DPPR_5Y_MIN` |  | screen_cn.xs |
+| `CUR_IND_DPPR_AR_10Y_MIN` | `$CUR_IND_DPPR_AR_10Y_MIN` |  | screen_cn.xs |
+| `CUR_IND_DPPR_AR_3Y_MIN` | `$CUR_IND_DPPR_AR_3Y_MIN` |  | screen_cn.xs |
+| `CUR_IND_DPPR_AR_5Y_MIN` | `$CUR_IND_DPPR_AR_5Y_MIN` |  | screen_cn.xs |
+| `CUR_IND_GMR_10Y_AVG` | `$CUR_IND_GMR_10Y_AVG` |  | screen.xs |
+| `CUR_IND_GMR_10Y_MIN` | `$CUR_IND_GMR_10Y_MIN` |  | screen.xs |
+| `CUR_IND_GMR_3Y_AVG` | `$CUR_IND_GMR_3Y_AVG` |  | screen.xs |
+| `CUR_IND_GMR_3Y_MIN` | `$CUR_IND_GMR_3Y_MIN` |  | screen.xs |
+| `CUR_IND_GMR_5Y_AVG` | `$CUR_IND_GMR_5Y_AVG` |  | screen.xs |
+| `CUR_IND_GMR_5Y_MIN` | `$CUR_IND_GMR_5Y_MIN` |  | screen.xs |
+| `CUR_IND_GMR_PCT` | `$CUR_IND_GMR_PCT` |  | screen.xs |
+| `CUR_IND_MV_PCT` | `$CUR_IND_MV_PCT` |  | screen.xs |
+| `CUR_IND_MV_SHARE` | `$CUR_IND_MV_SHARE` |  | screen.xs |
+| `CUR_IND_NPM_10Y_AVG` | `$CUR_IND_NPM_10Y_AVG` |  | screen.xs |
+| `CUR_IND_NPM_10Y_MIN` | `$CUR_IND_NPM_10Y_MIN` |  | screen.xs |
+| `CUR_IND_NPM_3Y_AVG` | `$CUR_IND_NPM_3Y_AVG` |  | screen.xs |
+| `CUR_IND_NPM_3Y_MIN` | `$CUR_IND_NPM_3Y_MIN` |  | screen.xs |
+| `CUR_IND_NPM_5Y_AVG` | `$CUR_IND_NPM_5Y_AVG` |  | screen.xs |
+| `CUR_IND_NPM_5Y_MIN` | `$CUR_IND_NPM_5Y_MIN` |  | screen.xs |
+| `CUR_IND_NPM_PCT` | `$CUR_IND_NPM_PCT` |  | screen.xs |
+| `CUR_IND_NPTS_10Y_AVG` | `$CUR_IND_NPTS_10Y_AVG` |  | screen.xs |
+| `CUR_IND_NPTS_10Y_MIN` | `$CUR_IND_NPTS_10Y_MIN` |  | screen.xs |
+| `CUR_IND_NPTS_3Y_AVG` | `$CUR_IND_NPTS_3Y_AVG` |  | screen.xs |
+| `CUR_IND_NPTS_3Y_MIN` | `$CUR_IND_NPTS_3Y_MIN` |  | screen.xs |
+| `CUR_IND_NPTS_5Y_AVG` | `$CUR_IND_NPTS_5Y_AVG` |  | screen.xs |
+| `CUR_IND_NPTS_5Y_MIN` | `$CUR_IND_NPTS_5Y_MIN` |  | screen.xs |
+| `CUR_IND_NPTS_AR_10Y_AVG` | `$CUR_IND_NPTS_AR_10Y_AVG` |  | screen.xs |
+| `CUR_IND_NPTS_AR_10Y_MIN` | `$CUR_IND_NPTS_AR_10Y_MIN` |  | screen.xs |
+| `CUR_IND_NPTS_AR_3Y_AVG` | `$CUR_IND_NPTS_AR_3Y_AVG` |  | screen.xs |
+| `CUR_IND_NPTS_AR_3Y_MIN` | `$CUR_IND_NPTS_AR_3Y_MIN` |  | screen.xs |
+| `CUR_IND_NPTS_AR_5Y_AVG` | `$CUR_IND_NPTS_AR_5Y_AVG` |  | screen.xs |
+| `CUR_IND_NPTS_AR_5Y_MIN` | `$CUR_IND_NPTS_AR_5Y_MIN` |  | screen.xs |
+| `CUR_IND_NP_10Y_AVG` | `$CUR_IND_NP_10Y_AVG` |  | screen.xs |
+| `CUR_IND_NP_10Y_MIN` | `$CUR_IND_NP_10Y_MIN` |  | screen.xs |
+| `CUR_IND_NP_3Y_AVG` | `$CUR_IND_NP_3Y_AVG` |  | screen.xs |
+| `CUR_IND_NP_3Y_MIN` | `$CUR_IND_NP_3Y_MIN` |  | screen.xs |
+| `CUR_IND_NP_5Y_AVG` | `$CUR_IND_NP_5Y_AVG` |  | screen.xs |
+| `CUR_IND_NP_5Y_MIN` | `$CUR_IND_NP_5Y_MIN` |  | screen.xs |
+| `CUR_IND_NP_AR_10Y_AVG` | `$CUR_IND_NP_AR_10Y_AVG` |  | screen.xs |
+| `CUR_IND_NP_AR_10Y_MIN` | `$CUR_IND_NP_AR_10Y_MIN` |  | screen.xs |
+| `CUR_IND_NP_AR_3Y_AVG` | `$CUR_IND_NP_AR_3Y_AVG` |  | screen.xs |
+| `CUR_IND_NP_AR_3Y_MIN` | `$CUR_IND_NP_AR_3Y_MIN` |  | screen.xs |
+| `CUR_IND_NP_AR_5Y_AVG` | `$CUR_IND_NP_AR_5Y_AVG` |  | screen.xs |
+| `CUR_IND_NP_AR_5Y_MIN` | `$CUR_IND_NP_AR_5Y_MIN` |  | screen.xs |
+| `CUR_IND_NP_PCT` | `$CUR_IND_NP_PCT` |  | screen.xs |
+| `CUR_IND_NP_SHARE` | `$CUR_IND_NP_SHARE` |  | screen.xs |
+| `CUR_IND_ROE_10Y_AVG` | `$CUR_IND_ROE_10Y_AVG` |  | screen.xs |
+| `CUR_IND_ROE_10Y_MIN` | `$CUR_IND_ROE_10Y_MIN` |  | screen.xs |
+| `CUR_IND_ROE_3Y_AVG` | `$CUR_IND_ROE_3Y_AVG` |  | screen.xs |
+| `CUR_IND_ROE_3Y_MIN` | `$CUR_IND_ROE_3Y_MIN` |  | screen.xs |
+| `CUR_IND_ROE_5Y_AVG` | `$CUR_IND_ROE_5Y_AVG` |  | screen.xs |
+| `CUR_IND_ROE_5Y_MIN` | `$CUR_IND_ROE_5Y_MIN` |  | screen.xs |
+| `CUR_IND_ROE_DPPR_10Y_MIN` | `$CUR_IND_ROE_DPPR_10Y_MIN` |  | screen_cn.xs |
+| `CUR_IND_ROE_DPPR_3Y_MIN` | `$CUR_IND_ROE_DPPR_3Y_MIN` |  | screen_cn.xs |
+| `CUR_IND_ROE_DPPR_5Y_MIN` | `$CUR_IND_ROE_DPPR_5Y_MIN` |  | screen_cn.xs |
+| `CUR_IND_ROE_PCT` | `$CUR_IND_ROE_PCT` |  | screen.xs |
+| `CUR_IND_TL_RATE_10Y_AVG` | `$CUR_IND_TL_RATE_10Y_AVG` |  | screen.xs |
+| `CUR_IND_TL_RATE_10Y_MIN` | `$CUR_IND_TL_RATE_10Y_MIN` |  | screen.xs |
+| `CUR_IND_TL_RATE_3Y_AVG` | `$CUR_IND_TL_RATE_3Y_AVG` |  | screen.xs |
+| `CUR_IND_TL_RATE_3Y_MIN` | `$CUR_IND_TL_RATE_3Y_MIN` |  | screen.xs |
+| `CUR_IND_TL_RATE_5Y_AVG` | `$CUR_IND_TL_RATE_5Y_AVG` |  | screen.xs |
+| `CUR_IND_TL_RATE_5Y_MIN` | `$CUR_IND_TL_RATE_5Y_MIN` |  | screen.xs |
+| `CUR_IND_TR_10Y_AVG` | `$CUR_IND_TR_10Y_AVG` |  | screen.xs |
+| `CUR_IND_TR_10Y_MIN` | `$CUR_IND_TR_10Y_MIN` |  | screen.xs |
+| `CUR_IND_TR_3Y_AVG` | `$CUR_IND_TR_3Y_AVG` |  | screen.xs |
+| `CUR_IND_TR_3Y_MIN` | `$CUR_IND_TR_3Y_MIN` |  | screen.xs |
+| `CUR_IND_TR_5Y_AVG` | `$CUR_IND_TR_5Y_AVG` |  | screen.xs |
+| `CUR_IND_TR_5Y_MIN` | `$CUR_IND_TR_5Y_MIN` |  | screen.xs |
+| `CUR_IND_TR_AR_10Y_AVG` | `$CUR_IND_TR_AR_10Y_AVG` |  | screen.xs |
+| `CUR_IND_TR_AR_10Y_MIN` | `$CUR_IND_TR_AR_10Y_MIN` |  | screen.xs |
+| `CUR_IND_TR_AR_3Y_AVG` | `$CUR_IND_TR_AR_3Y_AVG` |  | screen.xs |
+| `CUR_IND_TR_AR_3Y_MIN` | `$CUR_IND_TR_AR_3Y_MIN` |  | screen.xs |
+| `CUR_IND_TR_AR_5Y_AVG` | `$CUR_IND_TR_AR_5Y_AVG` |  | screen.xs |
+| `CUR_IND_TR_AR_5Y_MIN` | `$CUR_IND_TR_AR_5Y_MIN` |  | screen.xs |
+| `CUR_IND_TR_PCT` | `$CUR_IND_TR_PCT` |  | screen.xs |
+| `CUR_IND_TR_SHARE` | `$CUR_IND_TR_SHARE` |  | screen.xs |
 | `DPPR` | `$DPPR` |  | screen.xs |
 | `DPPR_` | `$DPPR_` |  | screen_hk.xs |

@@ -17,7 +17,7 @@ description: 按条件筛一批股票（市盈率、ROE、股息、行业等）�
 
 ## 何时不要用 (When NOT to use)
 
-- **单只公司的基本面/行情/估值查询** → 使用 `wm-company-card` / `wm-valuation`（单票摸底卡）
+- **单只公司的基本面/行情/估值查询** → 使用 `wm-company-card`（单票摸底卡）
 - **仅看自选关注列表里的股票** → 使用 `wm-watchlist`（关注列表）
 - **指数/行业成分名单列表** → 使用 `wm-index-members` / `wm-industry-members`
 

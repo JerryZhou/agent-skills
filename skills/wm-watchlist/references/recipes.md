@@ -72,8 +72,22 @@ SETXS(r, watchlist.add("688001", MAP{
   "reason": "add", "idempotency_key": "wl-add-" + rid,
 }))
 # 写返回常含 head（新 revision / symbols / groups）
-# 后续 set_note / set_tags / batch_add / group_* / remove 同理：先 snapshot 取 rev
+# 后续 set_note / set_annotation / set_tags / batch_add / group_* / remove 同理：先 snapshot 取 rev
 return r
+```
+
+## 6. 买卖点 + 备注 + 分组提醒绑定
+
+```xs
+SETXS(wl_market, "cn")
+SETXS(rev, INT(watchlist.snapshot(wl_market)["revision"]))
+SETXS(ann, watchlist.set_annotation("600519", MAP{
+  "note": "等回调", "buy_price": 1380, "sell_price": 1600,
+  "market": wl_market, "expected_revision": rev,
+}))
+# 分组提醒：skill 层 alert_enable 会 create pr_stock 再 group_set_alert
+# 解绑（不删订阅）：watchlist.group_set_alert(gid, "")
+return ann
 ```
 
 ## 5. apply 还原基线

@@ -1,7 +1,7 @@
 ---
 name: wm-notice-radar
 display_name: "公告搜索"
-version: 1.2.0
+version: 1.2.1
 description: 查询 A 股/港股公司公告，或按类别/减持回购信号扫描。用户问公告、业绩预告、减持回购、全市场公告汇总时使用。仅交易所公告，不含财经媒体/舆情新闻。美股暂不支持（返回 UNSUPPORTED_MARKET）。
 ---
 
@@ -12,6 +12,7 @@ description: 查询 A 股/港股公司公告，或按类别/减持回购信号�
 - 「最近有什么公告」「有没有业绩预告」
 - 「是否出现减持/回购信号」
 - 「最近 N 天全市场公告汇总 / 哪些值得关注」（**未点名单票**）
+- 「经营数据 / 产销快报 / 月度销量」：本技能 `list`（A 股或 `market=hk`）。**压过财经媒体**。协会市占/厂商 CR 不是公告，本技能无此字段。
 
 ## 市场范围
 
@@ -35,7 +36,7 @@ description: 查询 A 股/港股公司公告，或按类别/减持回购信号�
 
 - 域库：`sys/notice.*`（本技能最熟练；无独立 host selector）
 - 速查：[references/lib.md](references/lib.md)
-- 技能 mode：`list` / `category` / `signal` / `digest`；更细查询用 notice.query_* / store_find
+- 技能 mode：`list` / `category` / `signal` / `digest`；更细查询用 notice.query_* / store.find
 
 ### digest vs list（易空）
 

@@ -27,6 +27,8 @@ Commands (preferred single entry for agents):
 Examples:
   bash …/wm.sh discover '{"q":"kline.query_bars","domains":["vfunc"],"limit":5}' --result
   bash …/wm.sh run wm-company-card '{}' --symbol 600519 --result
+  bash …/wm.sh run wm-data '{"action":"macro","indicator":"cpi","periods":6}' --market cn --result
+      # 自动附带本机 Pack skill_version；落后时 stderr / result.skill_upgrade
   bash …/wm.sh xs-eval @xs:scripts/demo.xs 600519 --result
   bash …/wm.sh run wm-backtest @request.json --result
       # request.json 字段可用 "@xs:projects/backtest/…/trading.xs" / "@pack:…"

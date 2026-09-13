@@ -24,7 +24,7 @@ description: 公司一页纸摸底/初印象/行情+基本面全景/快看（默
 ## 何时不要用 (When NOT to use)
 
 - **全市场条件选股 / 筛选** → 使用 `wm-screen-index` 或 `westock-tool`（不要用本卡拉多票手工过滤）
-- **深度生意解读正文** → `wm-company-business`（可先本卡摸底）
+- **深挖主营结构与基础事实** → `wm-operating-segments` / `wm-statements`
 - **行业全成分 / 同行比价** → `wm-industry-members`
 - **平台分析脚本树** → `wm-analysis-nav`
 
@@ -48,7 +48,7 @@ description: 公司一页纸摸底/初印象/行情+基本面全景/快看（默
 
 | 用户意图 | 下一步 |
 |----------|--------|
-| 生意全貌 / 靠什么赚钱 | `wm-company-business` 或 **个股核对专家** |
+| 生意全貌 / 靠什么赚钱 | `wm-company-card` / `wm-operating-segments` / **个股核对专家** |
 | 读财务分析 / 进一步研读 / 值不值得继续看 | **公司深读专家**（`wm-analysis-nav`→`wm-analysis-run`） |
 | 竞争对象 / 同业名单与估值中枢 | `industry_l3` → `wm-industry-members` |
 | 行业阶段 / 天花板 / 竞争格局叙事 | **金融分析师**（配件 members + nav `theme=peer`）；**禁止外搜新闻当证据**；系统无 TAM 数据则如实说 |
@@ -59,7 +59,7 @@ description: 公司一页纸摸底/初印象/行情+基本面全景/快看（默
 
 ## 何时不要用
 
-- 深度生意解读正文 → `wm-company-business`（可先本卡摸底）
+- 深挖主营结构与基础事实 → `wm-operating-segments` / `wm-statements`
 - 行业全成分 → `wm-industry-members`
 - 平台分析脚本树 → `wm-analysis-nav`
 

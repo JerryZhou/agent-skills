@@ -1,15 +1,14 @@
 {
   "generated_from": "/Users/jerry/yepless/end/skillhub",
-  "hub_version": "1.1.14",
+  "hub_version": "1.1.16",
   "plugins": {
-    "winmale-skillhub": "1.1.14",
-    "winmale-stock-check": "1.4.1",
+    "winmale-skillhub": "1.1.16",
+    "winmale-stock-check": "1.4.3",
     "winmale-my-desk": "2.0.5"
   },
   "skills": [
     "wm-backtest",
     "wm-cashflow-quality",
-    "wm-company-business",
     "wm-company-card",
     "wm-debt-safety",
     "wm-discover",
@@ -19,7 +18,6 @@
     "wm-revenue-profit",
     "wm-screen-index",
     "wm-skillhub",
-    "wm-valuation",
     "wm-watchlist"
   ]
 }

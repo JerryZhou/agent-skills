@@ -21,11 +21,11 @@
 | `notice.query_by_category(category, window, limit, market)` | 全市场按类；`market` 默认 cn |
 | `notice.query_recent(window, type_regex, limit, market)` | 窗口检索 |
 | `notice.query_on_date(date, type_regex, limit, market)` | 某日 |
-| `notice.query_find` / `notice.store_find` | 自定义 filter（opts.market 或 stock_code 推断） |
+| `notice.query_find` / `notice.find` | 自定义 filter（opts.market 或 stock_code 推断） |
 | `notice.infer_market` / `notice.market_supported` / `notice.coll` | 市场分表助手 |
 | `notice.signal_has_*` | 减持/增持/回购/股权激励等布尔信号 |
 | `notice.type_keys()` / `notice.CATEGORIES` | 类别键（简繁正则） |
-| `notice.fmt_*` / `notice.row_*` | 格式化 |
+| `notice.fmt_*` / `notice.row_*` | 格式化。`fmt_maps` 的类型字段取 `row["type"]`，**禁止** `row.type`（Go 保留字） |
 
 加载：`sys/notice/init.xs`（技能内已 require，eval 时需自行 require）。
 
@@ -33,4 +33,4 @@
 
 ## 超出时
 
-自由标题检索、多票批量、未登记类别、PDF 全文 → 带已查范围上下文交 `wm-xs`，用 `notice.query_*` / `store_find`；**禁止**外搜新闻冒充公告。
+自由标题检索、多票批量、未登记类别、PDF 全文 → 带已查范围上下文交 `wm-xs`，用 `notice.query_*` / `store.find`；**禁止**外搜新闻冒充公告。

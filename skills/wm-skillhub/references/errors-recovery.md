@@ -40,6 +40,8 @@
 | `POLICY_DENIED` | 沙箱禁止该能力 | 换合规写法 / 降级 L1；勿让用户「再试一次」无效操作。 |
 | `SKILL_NOT_RUNNABLE` | 该 Pack 不能 skills/run | Role / xs-eval-guide 等按 SKILL 走 eval 或路由，勿硬 run。 |
 
+**非错误、须处理：** 成功响应里的 `skill_upgrade.stale=true`（本机 Pack 落后）→ `$WM hub update {skill_id}` 后重读 SKILL.md，再重试。
+
 历史别名 `QUOTA_EXCEEDED`：按 EC / 限流细分码处理。
 
 ---

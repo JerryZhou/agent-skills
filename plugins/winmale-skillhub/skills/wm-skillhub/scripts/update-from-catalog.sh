@@ -125,7 +125,6 @@ ALIASES = {
     "wm-quote-snapshot": "wm-company-card",
     "wm-screener-mine": "wm-screen-index",
     "wm-cashflow": "wm-cashflow-quality",
-    "wm-debt": "wm-debt-safety",
 }
 
 SKIP_VIS = frozenset({"deprecated", "hidden", "internal", "partner"})

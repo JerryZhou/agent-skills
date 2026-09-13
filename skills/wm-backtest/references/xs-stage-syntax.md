@@ -46,7 +46,9 @@ return ...   # 各阶段返回形状见 stages.md
 ### 手数 / 权重（A 股）
 
 买入股数 ≈ `floor(NAV × weight / price / 100) × 100`。  
-例：NAV=100 万、价=10、`weight=0.03` → 约 3000 股（可行）；价过高或 weight 过小 → 0 股 → ledger `risk_reject`（summary 里 `metrics.rule_counts.risk_reject` / `risk_reject_zero_qty`）。
+例：NAV=100 万、价=10、`weight=0.03` → 约 3000 股（可行）；价过高或 weight 过小 → 0 股 → ledger `risk_reject`（summary 里 `metrics.rule_counts.risk_reject` / `risk_reject_zero_qty`，以及 `lot_note`：「贵州茅台一手 > 目标金额」）。ledger 可读原因形如 `600519 一手约 136000 > 目标金额 100000`。
+
+自定义目标权重：**不要**把 `weights` 传给 `from_universe` / `from_strategy` / `from_watchlist`（会 `VALIDATION_FAILED`）。请 `run_custom` 挂官方示例 `@pack:wm-backtest/examples/xs/target_weight/trading.xs`（`wt` 是现金/持仓比例，不是元；必须 `return` 订单列表）。
 
 ### 基准
 
@@ -60,7 +62,7 @@ CN 默认基准 **`index.hs300`**（沪深 300）。L1 可用 `args.benchmark` �
 | `unknown script param "x"` | 在对应阶段写 `simulation.tuning("x", …)` 后 **sync/publish**；勿只写 `@param`；override 键名须一致 |
 | `pe_ttm`/`bar_ok` 恒空 | 缺 `init.xs`（lint 会拦） |
 | 有持仓但 `bar_ok=false` | 引擎补持仓 flat bar；策略用 `simulation.bar` / `last_price`（勿猜 `price`） |
-| 下单无成交 / `WEIGHT_SKIP` / `risk_reject` | weight 太小或不足一手；见上式；看 `rule_counts` |
+| 下单无成交 / `WEIGHT_SKIP` / `risk_reject` | weight 太小或不足一手（高价股一手 > 目标金额）；见上式；看 `rule_counts` / `lot_note` |
 | `UNIT_EXISTS` | 同 `unit_id` 默认覆盖；仅 `overwrite=false` 才硬失败 |
 | `ARGS_REQUIRED` | skills/run body 必须 `{"args":{...}}`，勿扁平 `{"action":...}` |
 

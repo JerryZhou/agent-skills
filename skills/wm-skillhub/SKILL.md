@@ -1,7 +1,7 @@
 ---
 name: wm-skillhub
 display_name: "SkillHub 管家"
-version: 1.1.14
+version: 1.1.16
 description: 配置赢麻了 API 凭证、浏览官方技能与 Role 目录，或安装/更新其它官方技能与 Role 时使用。请先安装本技能，再由它管理其余条目。金融场景优先加载 wm-finance-router。
 ---
 
@@ -28,7 +28,7 @@ description: 配置赢麻了 API 凭证、浏览官方技能与 Role 目录，�
 | `role-company-research-memo` | **公司深读专家** | 研究一家公司：读分析页 → 投资备忘 |
 | `role-financial-analyst` | **金融分析师** | 开分析 + **产品选股**（`wm-screen-index`）+ 个性化查询（`wm-xs`） |
 
-深度卡 `wm-cashflow` / `wm-debt`、以及已并入统一选股的 `wm-screener-mine`，均为 `visibility=deprecated`（目录/更新不主推）；日常用质量/安全简单版与 `wm-screen-index`。
+分析型卡片已从 SkillHub 移除；目录仅保留数据提取、事实查询与工作流能力。
 
 ## 何时使用
 
@@ -55,6 +55,7 @@ description: 配置赢麻了 API 凭证、浏览官方技能与 Role 目录，�
 ## 版本
 
 - 本技能版本见 frontmatter / `manifest.json` 的 `version`（semver）
+- **执行时核对**：`$WM run` 自动带本机 `skill_version`；远端对照 catalog，落后则 `skill_upgrade`（先 `$WM hub update {id}` 再重读 SKILL.md）
 - 远端总表：`GET https://open.winmale.com/api/skills` → 响应多为 **`{ data: { hub_version, skills[], roles[], … }, meta: {…} }`**；读 `data.hub_version` / `data.skills`（脚本已 unwrap）。扁平字段是文档简写，不是裸响应根。
 - 约定见 SkillHub 仓 `docs/VERSIONING.md`
 - 升级预演：`bash scripts/update-from-catalog.sh --check`（或 `--dry-run`）只对比版本 / 打印 changelog，不下载
@@ -167,11 +168,12 @@ $WM hub list|rename|cleanup|doctor
 ## 调用公约（所有子技能）
 
 1. 执行面：**仅** `wm.sh`（`discover` / `run` / `xs-eval` / `xs-check` / `xs-fmt` / `workspace` / `hub`）；勿手搓 HTTP
-2. 业务参数进 **`args` 嵌套**（`--symbol` 为顶层标的）。skills/run 正确形如 `{"args":{"action":"…",…}}`；**禁止**扁平 `{"action":"…"}`（会 `ARGS_REQUIRED` 或静默错路径）。复杂 XS 字段用 `@xs:` / `@pack:` / `@file:`；多文件依赖试跑用 xs-eval 闭包，正式跑先 `workspace push`
+2. 业务参数进 **`args` 嵌套**。`--symbol` 给公司级 skill；市场级（宏观 / 分析目录等）用 **`--market cn|hk|us`**（写入 `args.market`），不要拿 `600519` 当假锚。skills/run 正确形如 `{"args":{"action":"…",…}}`；**禁止**扁平 `{"action":"…"}`（会 `ARGS_REQUIRED` 或静默错路径）。复杂 XS 字段用 `@xs:` / `@pack:` / `@file:`；多文件依赖试跑用 xs-eval 闭包，正式跑先 `workspace push`
 3. 标的码 / 指标名 / **选股字段与枚举取值**不明时 → `$WM discover`（选股用 `domains=["screener"]`）
 4. **写/读 XS 函数** → `$WM discover` `domains=["vfunc"]`，读 **`example_call_xs` + `call_spec`**（稳定域库已预载，`require` 可忽略）再 `$WM xs-eval`；领域库见 `wm-xs/references/domain-libs.md`
 5. 需要编写 XS / 开分析查询 / **产品选股** → `role-financial-analyst`（选股走 `wm-screen-index`；个性化查询走 `wm-xs`）；**禁止**改走 westock / 同花顺 / 东财等第三方选股·指标工具补洞
 6. 公开清单：`GET https://open.winmale.com/api/skills`（只读，无需 Key）
+7. **版本（硬）**：`$WM run` 自动附带本机 Pack `skill_version`。若结果含 `skill_upgrade.stale=true`（或 stderr `UPGRADE`）：**先** `$WM hub update {skill_id}`，**再读**更新后的 SKILL.md，然后重试。禁止忽略版本提示继续用旧合同。
 
 ## 技能反馈（统一 Feedback）
 
@@ -183,6 +185,8 @@ Agent **应自主**使用反馈能力，不要等用户说「帮我提个 bug」
 | 用户明确抱怨技能/数据 | 同上；并贴进展链 |
 | 需要用户补充截图或细节 | 贴 `feedback.new` markdown，让用户在站内填 |
 | 用户问「我提的反馈怎样了」 | `feedback.list` / `feedback.get`，贴返回的 `deeplinks[].markdown` |
+
+研读成文要落入投研站文章库时，用 **`wm-article`**（`projects/articles/`）；分享/撤回/再发布在投研站完成，规则见 investing `docs/ARTICLE_LIBRARY.md`。
 
 细则：
 
@@ -363,17 +367,16 @@ unzip -o /tmp/wm-skillhub.zip -d "<skills_root>"
 | `wm-quote-snapshot` | ~~行情快照~~（已下架，请用 company-card） |
 | `wm-company-card` | 公司一页纸（含行情；`include` 裁剪） |
 | `wm-index` | **指数域总入口**（点位/K线/中枢/成分/权重）；勿与 `wm-screen-index` 混淆 |
-| `wm-industry` | **行业域总入口**（中枢/成分/龙头；一期无点位K） |
+| `wm-industry` | **行业域总入口**（中枢/一级贵不贵 scan/成分/龙头；一期无点位K） |
 | `wm-industry-members` | 申万行业成分窄场景（总入口优先 `wm-industry`） |
 | `wm-index-members` | 指数成分窄场景（总入口优先 `wm-index`）；分类型/多年结构 → 金融分析师 |
 | `wm-analysis-nav` / `wm-analysis-run` | 分析脚本导航与执行 |
-| `wm-company-business` | 生意解读卡 |
 | `wm-notice-radar` | 公告 / 减持回购；**库主人 `sys/notice.*`**；超出→eval |
 | `wm-screen-index` | 统一选股（search/conditions/list·run·save）；字段对齐优先 discover `screener`；索引缺口→分析师+eval（禁第三方选股） |
 | `wm-screener-mine` | ~~我的选股~~（已下架，并入 screen-index） |
 | `wm-watchlist` | 我的关注；**库主人 `watchlist.*`**；池内再筛→eval/screen |
 | `wm-reminder` | 提醒 list/create；**库主人 `reminder.*`**；改删查触发→诚实缺口/eval |
-| `wm-cashflow-quality` / `wm-debt-safety` / `wm-revenue-profit` / `wm-statements` / `wm-data` / `wm-dividend-quality` / `wm-shareholder-structure` / `wm-executives` / `wm-operating-segments` | 财务与股权卡片；**三表多期**用 `wm-statements`；**综合查数**用 `wm-data`；股息另见 **`sys/bonus.*`** |
+| `wm-cashflow-quality` / `wm-debt-safety` / `wm-revenue-profit` / `wm-statements` / `wm-data` / `wm-dividend-quality` / `wm-shareholder-structure` / `wm-executives` / `wm-operating-segments` | 财务与股权卡片；**三表多期**用 `wm-statements`；**现金流质量**用 `wm-cashflow-quality`；**综合查数**用 `wm-data`；股息另见 **`sys/bonus.*`** |
 | `wm-xs` | **沙箱 XS**（凡写 XS 用它；常由金融分析师编排） |
 | `role-fundamentals-check` | Role：个股核对专家 |
 | `role-retail-tracker` | Role：投研管家 |

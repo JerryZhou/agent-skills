@@ -8,33 +8,33 @@
 | id | code | cn | source |
 |----|------|----|--------|
 | `CF_KIND` | `$CF_KIND` |  | screen_cf.xs |
-| `CF_KIND_CODE_10Y` | `$CF_KIND_CODE_10Y` | 近10年现金流特征(TTM) | screen.xs |
-| `CF_KIND_CODE_10Y_LAST` | `$CF_KIND_CODE_10Y_LAST` | 近10年现金流特征(TTM) | screen.xs |
-| `CF_KIND_CODE_3Y` | `$CF_KIND_CODE_3Y` | 近3年现金流特征(TTM) | screen.xs |
-| `CF_KIND_CODE_3Y_LAST` | `$CF_KIND_CODE_3Y_LAST` | 近3年现金流特征(TTM) | screen.xs |
-| `CF_KIND_CODE_5Y` | `$CF_KIND_CODE_5Y` | 近5年现金流特征(TTM) | screen.xs |
-| `CF_KIND_CODE_5Y_LAST` | `$CF_KIND_CODE_5Y_LAST` | 近5年现金流特征(TTM) | screen.xs |
+| `CF_KIND_CODE_10Y` | `$CF_KIND_CODE_10Y` |  | screen.xs |
+| `CF_KIND_CODE_10Y_LAST` | `$CF_KIND_CODE_10Y_LAST` |  | screen.xs |
+| `CF_KIND_CODE_3Y` | `$CF_KIND_CODE_3Y` |  | screen.xs |
+| `CF_KIND_CODE_3Y_LAST` | `$CF_KIND_CODE_3Y_LAST` |  | screen.xs |
+| `CF_KIND_CODE_5Y` | `$CF_KIND_CODE_5Y` |  | screen.xs |
+| `CF_KIND_CODE_5Y_LAST` | `$CF_KIND_CODE_5Y_LAST` |  | screen.xs |
 | `CF_KIND_TTM` | `$CF_KIND_TTM` |  | screen.xs |
-| `CF_KIND_VALID_10Y` | `$CF_KIND_VALID_10Y` | 近10年现金流特征(TTM)有效年数 | screen.xs |
-| `CF_KIND_VALID_10Y_LAST` | `$CF_KIND_VALID_10Y_LAST` | 近10年现金流特征(TTM)有效年数 | screen.xs |
-| `CF_KIND_VALID_3Y` | `$CF_KIND_VALID_3Y` | 近3年现金流特征(TTM)有效年数 | screen.xs |
-| `CF_KIND_VALID_3Y_LAST` | `$CF_KIND_VALID_3Y_LAST` | 近3年现金流特征(TTM)有效年数 | screen.xs |
-| `CF_KIND_VALID_5Y` | `$CF_KIND_VALID_5Y` | 近5年现金流特征(TTM)有效年数 | screen.xs |
-| `CF_KIND_VALID_5Y_LAST` | `$CF_KIND_VALID_5Y_LAST` | 近5年现金流特征(TTM)有效年数 | screen.xs |
-| `CUR_IND_CF_KIND_CODE_10Y` | `$CUR_IND_CF_KIND_CODE_10Y` | 行业近10年现金流特征(TTM) | screen.xs |
-| `CUR_IND_CF_KIND_CODE_10Y_LAST` | `$CUR_IND_CF_KIND_CODE_10Y_LAST` | 行业近10年现金流特征(TTM) | screen.xs |
-| `CUR_IND_CF_KIND_CODE_3Y` | `$CUR_IND_CF_KIND_CODE_3Y` | 行业近3年现金流特征(TTM) | screen.xs |
-| `CUR_IND_CF_KIND_CODE_3Y_LAST` | `$CUR_IND_CF_KIND_CODE_3Y_LAST` | 行业近3年现金流特征(TTM) | screen.xs |
-| `CUR_IND_CF_KIND_CODE_5Y` | `$CUR_IND_CF_KIND_CODE_5Y` | 行业近5年现金流特征(TTM) | screen.xs |
-| `CUR_IND_CF_KIND_CODE_5Y_LAST` | `$CUR_IND_CF_KIND_CODE_5Y_LAST` | 行业近5年现金流特征(TTM) | screen.xs |
-| `CUR_IND_CF_KIND_VALID_10Y` | `$CUR_IND_CF_KIND_VALID_10Y` | 行业近10年现金流特征(TTM)有效年数 | screen.xs |
-| `CUR_IND_CF_KIND_VALID_10Y_LAST` | `$CUR_IND_CF_KIND_VALID_10Y_LAST` | 行业近10年现金流特征(TTM)有效年数 | screen.xs |
-| `CUR_IND_CF_KIND_VALID_3Y` | `$CUR_IND_CF_KIND_VALID_3Y` | 行业近3年现金流特征(TTM)有效年数 | screen.xs |
-| `CUR_IND_CF_KIND_VALID_3Y_LAST` | `$CUR_IND_CF_KIND_VALID_3Y_LAST` | 行业近3年现金流特征(TTM)有效年数 | screen.xs |
-| `CUR_IND_CF_KIND_VALID_5Y` | `$CUR_IND_CF_KIND_VALID_5Y` | 行业近5年现金流特征(TTM)有效年数 | screen.xs |
-| `CUR_IND_CF_KIND_VALID_5Y_LAST` | `$CUR_IND_CF_KIND_VALID_5Y_LAST` | 行业近5年现金流特征(TTM)有效年数 | screen.xs |
+| `CF_KIND_VALID_10Y` | `$CF_KIND_VALID_10Y` |  | screen.xs |
+| `CF_KIND_VALID_10Y_LAST` | `$CF_KIND_VALID_10Y_LAST` |  | screen.xs |
+| `CF_KIND_VALID_3Y` | `$CF_KIND_VALID_3Y` |  | screen.xs |
+| `CF_KIND_VALID_3Y_LAST` | `$CF_KIND_VALID_3Y_LAST` |  | screen.xs |
+| `CF_KIND_VALID_5Y` | `$CF_KIND_VALID_5Y` |  | screen.xs |
+| `CF_KIND_VALID_5Y_LAST` | `$CF_KIND_VALID_5Y_LAST` |  | screen.xs |
+| `CUR_IND_CF_KIND_CODE_10Y` | `$CUR_IND_CF_KIND_CODE_10Y` |  | screen.xs |
+| `CUR_IND_CF_KIND_CODE_10Y_LAST` | `$CUR_IND_CF_KIND_CODE_10Y_LAST` |  | screen.xs |
+| `CUR_IND_CF_KIND_CODE_3Y` | `$CUR_IND_CF_KIND_CODE_3Y` |  | screen.xs |
+| `CUR_IND_CF_KIND_CODE_3Y_LAST` | `$CUR_IND_CF_KIND_CODE_3Y_LAST` |  | screen.xs |
+| `CUR_IND_CF_KIND_CODE_5Y` | `$CUR_IND_CF_KIND_CODE_5Y` |  | screen.xs |
+| `CUR_IND_CF_KIND_CODE_5Y_LAST` | `$CUR_IND_CF_KIND_CODE_5Y_LAST` |  | screen.xs |
+| `CUR_IND_CF_KIND_VALID_10Y` | `$CUR_IND_CF_KIND_VALID_10Y` |  | screen.xs |
+| `CUR_IND_CF_KIND_VALID_10Y_LAST` | `$CUR_IND_CF_KIND_VALID_10Y_LAST` |  | screen.xs |
+| `CUR_IND_CF_KIND_VALID_3Y` | `$CUR_IND_CF_KIND_VALID_3Y` |  | screen.xs |
+| `CUR_IND_CF_KIND_VALID_3Y_LAST` | `$CUR_IND_CF_KIND_VALID_3Y_LAST` |  | screen.xs |
+| `CUR_IND_CF_KIND_VALID_5Y` | `$CUR_IND_CF_KIND_VALID_5Y` |  | screen.xs |
+| `CUR_IND_CF_KIND_VALID_5Y_LAST` | `$CUR_IND_CF_KIND_VALID_5Y_LAST` |  | screen.xs |
 | `ID_CF_KIND` | `$ID_CF_KIND` |  | screen_cf.xs |
 | `ID_CF_KIND_TTM` | `$ID_CF_KIND_TTM` |  | screen.xs |
-| `NCFO_3Y_MIN` | `$NCFO_3Y_MIN` | 近3年经营现金流(TTM)最低 | screen.xs |
-| `NCFO_3Y_MIN_LAST` | `$NCFO_3Y_MIN_LAST` | 近3年经营现金流(TTM)最低 | screen.xs |
+| `NCFO_3Y_MIN` | `$NCFO_3Y_MIN` |  | screen.xs |
+| `NCFO_3Y_MIN_LAST` | `$NCFO_3Y_MIN_LAST` |  | screen.xs |
 | `NCFO_TTM` | `$NCFO_TTM` |  | screen.xs |

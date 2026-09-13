@@ -13,8 +13,15 @@
       "name": "WinMale SkillHub 管家",
       "description": "赢麻了投研技能入口：配置 API 凭证、浏览并安装/更新官方技能与 Role。请先装本插件。",
       "category": "productivity",
-      "skills": ["wm-skillhub"],
-      "keywords": ["winmale", "skillhub", "finance", "equity-research"]
+      "skills": [
+        "wm-skillhub"
+      ],
+      "keywords": [
+        "winmale",
+        "skillhub",
+        "finance",
+        "equity-research"
+      ]
     },
     {
       "id": "winmale-stock-check",
@@ -23,8 +30,6 @@
       "category": "productivity",
       "skills": [
         "wm-company-card",
-        "wm-company-business",
-        "wm-valuation",
         "wm-notice-radar",
         "wm-dividend-quality",
         "wm-debt-safety",
@@ -32,7 +37,13 @@
         "wm-revenue-profit",
         "wm-discover"
       ],
-      "keywords": ["winmale", "stock", "fundamentals", "valuation", "equity-research"]
+      "keywords": [
+        "winmale",
+        "stock",
+        "fundamentals",
+        "valuation",
+        "equity-research"
+      ]
     },
     {
       "id": "winmale-my-desk",
@@ -45,7 +56,13 @@
         "wm-screen-index",
         "wm-backtest"
       ],
-      "keywords": ["winmale", "watchlist", "screener", "backtest", "portfolio"]
+      "keywords": [
+        "winmale",
+        "watchlist",
+        "screener",
+        "backtest",
+        "portfolio"
+      ]
     }
   ]
 }

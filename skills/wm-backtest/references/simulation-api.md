@@ -1,7 +1,9 @@
 # 引擎面：simulation 库与 bt.* / book
 
-加载：`xs.require("xs/simulation/lib/init.xs")`（依次：trace → config → group → status → corporate → fundamental → events → portfolio）。  
+加载：`xs.require("xs/simulation/lib/init.xs")`（trace → … → portfolio → quote → quote_ta → fundamental → state）。  
 查源码：`backtest.lib_read("xs/simulation/lib/portfolio.xs")`（host）。未 load / 非日环 → `pe_ttm`/`bar_ok` 会空或恒 false。
+
+Probe 时 `bt.live=true`：`simulation.pb` / `pe_ttm` / `mv` / `chg` / `rsi` / `kdj` / `macd` 用 forming last；裸 `$PB_TTM` / `$RSI_14` 仍是昨收。回测 `bt.live=false` 与 SAS 一致。
 
 **硬规则**：写 trading/risk **禁止猜字段**。`bt` / `book` / `positions` / `bar` 字段以下表为准；没有的键（如 `pos.cost`、`pos.price`）不存在。
 
@@ -9,6 +11,7 @@
 
 | 键 | 类型 | 含义 |
 |----|------|------|
+| `bt.live` | bool | probe forming/tip；回测日环 false |
 | `bt.date` | string `YYYY-MM-DD` | 当前模拟日 |
 | `bt.ts` | int unix | 当日 0 点 |
 | `bt.day_index` | int | 日序号 |
@@ -36,7 +39,9 @@
 | 字段 | 含义 |
 |------|------|
 | `open` / `high` / `low` / `close` | OHLC |
-| `volume` | 量 |
+| `volume` / `amount` | 量 / 额 |
+| `pre_close` / `change` / `percent` | 昨收与涨跌（probe forming；回测日 K 常为 0） |
+| `source` | `probe_tip` / `kline` / `held_fill` |
 
 **现价（交易日）**：优先 `simulation.last_price(sym)` 或 `simulation.bar(sym).close`。  
 `simulation.bar` / `ensure_bar`：已有有效 `bt.bar` → 直接返回；否则按 **`bt.date` PIT** 拉 `kline.*` 写回（`source=kline`）；再否则持仓用 `last_price`/`avg_cost` 合成（`source=held_fill`）。禁止偷看未来 / 实时。  
@@ -86,15 +91,19 @@ bar := simulation.bar(sym)             # 缺则 PIT 补写 bt.bar
 
 ## 按模块：常用 API
 
-### fundamental.xs
+### fundamental.xs / quote.xs
 
 | API | 说明 |
 |-----|------|
-| `simulation.pe_ttm(sym)` / `roe` / `mv` / `debt_ratio` … | 跨标的；内部 `SETCURSORXS` |
-| filter 内 | 可直接 `$PE_TTM`（当前 symbol 已 cursor） |
+| `simulation.pe_ttm` / `pb` / `ps_ttm` / `pr` / `mv` | 估值；**probe 用 last×股本**，勿裸 `$PE_TTM` |
+| `simulation.roe` / `debt_ratio` / `ncfo` | 无价格腿，PIT 即可 |
+| `simulation.chg` / `ma` / `percent` / `bias` | 技术；probe 按 last 缩放 SAS 窗口 |
+| `simulation.rsi` / `kdj` / `macd` / `boll` | 盘中重算序列（DEA/RSI/KDJ）；回测读 SAS |
+| `simulation.rsi` / `kdj` / `macd` / `boll` | 盘中重算序列（DEA/RSI/KDJ）；回测读 SAS |
+| filter 内无价格腿 | 可直接 `$ROE_TTM`；**估值仍建议 `simulation.pb(symbol)`** |
 
-**正确**：`xs.require(init)` 后 `simulation.pe_ttm(STRING(sym))`。  
-**错误**：trading 里对非游标标的裸写 `$PE_TTM`。
+**正确**：`xs.require(init)` 后 `simulation.pb(STRING(sym))`。  
+**错误**：trading 里对非游标标的裸写 `$PB_TTM`；probe 里拿 `$PE_TTM` 当盘中估值。
 
 ### portfolio.xs
 

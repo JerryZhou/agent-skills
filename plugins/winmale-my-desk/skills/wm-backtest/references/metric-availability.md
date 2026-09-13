@@ -7,9 +7,9 @@
 
 | 阶段 | 推荐（包裹） | 禁止 | 兜底（须 PIT） |
 |------|--------------|------|----------------|
-| selector **filter** | 裸 `$PE_TTM` / `!$IS_ST` / `$ROE_TTM` / `$BONUS_RATE_TTM`（引擎已切游标） | `_LAST` | 一般不需要 |
+| selector **filter** | 回测：裸 `$PE_TTM` / `$ROE_TTM`；**probe 估值用 `simulation.pe_ttm(symbol)`** | `_LAST` | 一般不需要 |
 | selector list / rank | `simulation.*` 或切游标后 `$METRIC` | 未切游标裸读跨标的 | `SETCURSORXS(sym); $X` |
-| trading / risk 跨标的 | **`simulation.pe_ttm` / `roe` / `dividend_yield` / `bar_ok` / `position_cost`** | 未切游标裸 `$PE_TTM`；猜 `pos.price` | 糖衣无该指标时：`SETCURSORXS`+`$X` 或 `AT(sym,$X)` |
+| trading / risk 跨标的 | **`simulation.pb` / `pe_ttm` / `roe` / `chg` / `rsi` / `macd` / `bar_ok` / `position_cost`** | 裸 `$PE_TTM`/`$PB_TTM`/`$RSI_14`（probe 仍是昨收）；猜 `pos.price` | 糖衣无该指标时：`SETCURSORXS`+`$X`（无价格腿 only） |
 | 行情 | **`bt.bar[sym].close` + `bar_ok`**；持仓兜底 `last_price` | 无日期锚的行情 | 仅 bar 缺失时：kline **锚 `bt.date`**（先 `bar_diag`） |
 
 ## 必载
@@ -38,22 +38,24 @@ pe := simulation.pe_ttm(sym)
 if pe <= 0 || pe >= simulation.tuning("max_pe", 15) { continue }
 ```
 
-### trading 原生等价（兜底，仍在 SimClock）
+### trading 原生等价（兜底，仅无价格腿）
 
 ```xs
 SETCURSORXS(STRING(sym))
-pe := $PE_TTM
-# 或 pe := AT(STRING(sym), $PE_TTM)
+roe := $ROE_TTM
 ```
 
-### 股息 / ROE
+估值 / 涨跌幅不要这条路径。Probe 必须 `simulation.pb` / `pe_ttm` / `chg` / `rsi` / `macd`。
+
+### 股息 / ROE / 估值
 
 | 指标 | 包裹 | filter 裸读 |
 |------|------|-------------|
-| PE | `simulation.pe_ttm(sym)` | `$PE_TTM` |
+| PE / PB / PS / PR | `simulation.pe_ttm` / `pb` / `ps_ttm` / `pr` | 回测可 `$PE_TTM`；**probe 不要裸读** |
 | ST | — | `!$IS_ST` |
 | ROE | `simulation.roe(sym)` / `roe_ttm` | `$ROE_TTM` |
-| 股息率 | `simulation.dividend_yield(sym)` | `$BONUS_RATE_TTM`（口径以指标目录为准） |
+| 股息率 | `simulation.dividend_yield(sym)` | `$BONUS_RATE_TTM`（probe 随 last 须走包裹） |
+| 涨跌幅 | `simulation.chg(sym, n)` / `percent` | 回测可 `$CHG_nD`；**probe 不要裸读** |
 
 ## 阶段测试
 

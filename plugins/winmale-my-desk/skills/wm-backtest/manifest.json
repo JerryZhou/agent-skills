@@ -1,7 +1,7 @@
 {
   "id": "wm-backtest",
   "name": "量化策略回测师",
-  "version": "0.3.24",
+  "version": "0.3.27",
   "tier": 1,
   "visibility": "opt_in",
   "l1_family": "user_asset",
@@ -13,6 +13,7 @@
       "action": {
         "type": "string",
         "enum": [
+          "help",
           "list",
           "status",
           "summary",
@@ -25,7 +26,7 @@
           "run_custom"
         ],
         "default": "list",
-        "description": "盘点/跟踪；from_*=意图转任务；lint/preview_custom/run_custom=自定义脚本；resume=恢复"
+        "description": "help=清单；盘点/跟踪；from_*=意图转任务；lint/preview_custom/run_custom=自定义脚本；resume=恢复"
       },
       "run_id": {
         "type": "string"

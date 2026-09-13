@@ -1,7 +1,7 @@
 ---
 name: wm-backtest
 display_name: "量化策略回测师"
-version: 0.3.24
+version: 0.3.27
 description: 把自然语言里的选股池、关注列表或交易想法收成可跑的回测任务，确认后发起，输出收益回撤等标准指标与结果解读，并指出偏差与下一轮改法。不是模拟炒股。
 ---
 
@@ -24,13 +24,14 @@ description: 把自然语言里的选股池、关注列表或交易想法收成�
 |----|------|
 | 一批票 + 持仓规则，要在**历史**上验证并复盘 | 只筛票 → `wm-screen-index` |
 | 自定义选股/交易/风控逻辑单元 | 只整理关注 → `wm-watchlist` |
-| 查跑批状态、净值、成交、trace | Python / 第三方回测平台 |
+| 查跑批状态、净值、成交、trace | **盘中实时会话 / 纸面 / 企微意图** → **`wm-probe`** |
+| | Python / 第三方回测平台 |
 
 ---
 
 ## 给 Agent：系统是什么
 
-拨测 = **两套子系统**叠在一起（基础设施库 + 对外 CRUD 包装）。不要当成「一堆无关 action」。
+回测 = **两套子系统**叠在一起（基础设施库 + 对外 CRUD 包装）。不要当成「一堆无关 action」。实时盘中请用 **`wm-probe`**，不要把本技能当成 live loop。
 
 ```text
 ① 管理面（对外包装围绕 CRUD）
@@ -73,7 +74,7 @@ CN 默认基准 `index.hs300`；可用 `args.benchmark` 覆盖。
 | **单元** | 新建自定义策略 | L1 **`run_custom`**（create→write→validate→publish→run）；先 `preview_custom` |
 | **单元** | 改脚本/参数再跑 | **同一 `unit_id` 再 `run_custom`**（默认覆盖，`mode=update`）；高级面仍可用 host write→publish |
 | **单元** | 列官方/已发布 | host：`backtest.units` / `unit` / `catalog`（非 L1） |
-| **跑批** | 模板快速开跑 | L1 `from_watchlist` / `from_universe`（默认 unit=`equal_weight_buy_hold`） |
+| **跑批** | 模板快速开跑 | L1 `from_watchlist` / `from_universe`（默认 unit=`equal_weight_buy_hold`；**不支持 `weights`**，自定义权重走 `run_custom`） |
 | **跑批** | 列表/进度/指标 | free `_backtest_runs|_status|_summary.xs` 或 L1 list/status/summary |
 | **跑批** | 深读/历史 | free `_backtest_deep|_trace.xs`（分级分页，见 experience §2.2） |
 | **跑批** | 额度暂停恢复 | L1 `resume` |
@@ -89,7 +90,7 @@ HTTP 仍是 `{success, data, meta}`。XS return **摊平到 `data.*`**，同时�
 | lint 结果 | `data.lint`（或 `data.result.lint`） |
 | 发起后的 run | `data.run` / `data.run_id`（若有） |
 | 自定义模式 | `data.mode` = `create` \| `update` |
-| 拒单计数 | summary → `metrics.rule_counts.risk_reject` |
+| 拒单计数 | summary → `metrics.rule_counts.risk_reject`；不足一手见 `lot_note`（「茅台一手 > 目标金额」） |
 
 业务参数必须在 **`args`** 里：`{"args":{"action":"run_custom",...}}`。扁平 `{"action":...}` → **`ARGS_REQUIRED`**（不再静默 list）。
 
@@ -112,7 +113,7 @@ selector → selector_rank → trading → risk → match(Go)
 | trading / risk | OrderProposal 列表 | 第 3 元=**weight 比例**，不是现金 |
 | — | — | `selector_freq` 只管选股刷新，**≠调仓**（调仓写在 trading） |
 
-必 `xs.require("xs/simulation/lib/init.xs")`。跨标的用 `simulation.pe_ttm` / `bar_ok`。查仿真库：`backtest.lib_read("xs/simulation/lib/…")`。  
+必 `xs.require("xs/simulation/lib/init.xs")`。跨标的用 `simulation.pb` / `pe_ttm` / `chg` / `rsi` / `macd` / `bar_ok`（probe 估值与技术走 last，勿裸 `$PB_TTM` / `$RSI_14`）。查仿真库：`backtest.lib_read("xs/simulation/lib/…")`。  
 **通用函数语法** → wm-discover / **wm-xs**。  
 **阶段脚本文本**：短 inline 可写在 JSON；**复杂阶段必须**本地文件 + 引用——官方示例 `@pack:wm-backtest/examples/xs/…`，自写 `@xs:projects/backtest/<name>/….xs`（`~/.winmale/workspace/`，`wm.sh run` 展开后再 POST）。阶段内 `xs.require` 依赖库放 `scripts/` 并 **`wm.sh workspace push`**（异步拨测**不**带 request overlay）。语法起草 / check / eval 仍归 **wm-xs**，再挂 lint / preview_custom / run_custom。
 
@@ -151,6 +152,7 @@ selector → selector_rank → trading → risk → match(Go)
 | `examples/lint_selector.json` | 引擎·自定义 | lint（可用 wm-xs 起草） |
 | `examples/run_custom_full.json` | 引擎·自定义 | 全阶段；阶段正文 `@pack:…/xs/run_custom_full/` |
 | `examples/pe_filter_trading.json` | 引擎·自定义 | PE + tuning；`@pack:…/xs/pe_filter/` |
+| `examples/target_weight.json` | 引擎·自定义 | 目标权重建仓；`from_*` 不接受 `weights`；`@pack:…/xs/target_weight/` |
 | `examples/xs/stage_harness/smoke.xs` | 引擎·阶段单测 | 夹具：持仓∉candidates 仍可取价 |
 | `examples/xs/stage_harness/trading_take_profit_check.xs` | 引擎·阶段单测 | 夹具验证 take_profit 提案 |
 | `examples/xs/stage_harness/selector_rank_check.xs` | 引擎·阶段单测 | 最小 rank：按 close Top2 |
@@ -204,3 +206,5 @@ bash .cursor/skills/wm-skillhub/scripts/wm.sh run wm-backtest \
 | **0.3.22** | position_cost / state / bar_diag / ARGS_REQUIRED / harness / per-symbol caps |
 | **0.3.23** | 引擎强制补持仓 bar；`metrics.rule_counts`；lint harness hint + 阶段最小模板；`xs-stage-syntax`；weight/手数/param 可读报错；skills/run 扁平 body → `ARGS_REQUIRED` |
 | **0.3.24** | `simulation.bar`/`last_price`（PIT 补价）；`run_custom` 同 unit_id 默认覆盖（`mode`）；`args.benchmark`；`rule_counts.risk_reject*`；当前版本读 `data.*` 说明 |
+| **0.3.25** | 澄清 `# @param` 为可选 UI 元数据；声明以 `simulation.tuning` + sync 为准；纠偏 agent 全量注释诱导 |
+| **0.3.26** | probe 技术面：`simulation.rsi` / `kdj` / `macd_dea` / `boll` 盘中序列；估值仍禁裸 `$PB_TTM` |

@@ -11,13 +11,13 @@
     {
       "name": "winmale-skillhub",
       "source": "./plugins/winmale-skillhub",
-      "version": "1.1.14",
+      "version": "1.1.16",
       "description": "赢麻了投研技能入口：配置 API 凭证、浏览并安装/更新官方技能与 Role。请先装本插件。"
     },
     {
       "name": "winmale-stock-check",
       "source": "./plugins/winmale-stock-check",
-      "version": "1.4.1",
+      "version": "1.4.3",
       "description": "看懂一只票：公司卡片、生意解读、估值、公告、股息、负债与现金流、营收利润；含统一发现。"
     },
     {

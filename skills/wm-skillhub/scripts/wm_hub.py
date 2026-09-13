@@ -13,7 +13,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _wm_runtime import WINMALE_HOME, USER_ENV, eprint, skills_root_from_hub_scripts  # noqa: E402
+from _wm_runtime import WINMALE_HOME, USER_ENV, eprint, read_pack_version, skills_root_from_hub_scripts  # noqa: E402
 
 ALIAS_FILE = "aliases.json"
 DISABLED_FILE = ".wm-disabled"
@@ -60,20 +60,7 @@ def resolve_id(root: Path, pack_id: str) -> str:
 
 
 def read_local_version(root: Path, pack_id: str) -> str:
-    pack = root / pack_id
-    for name in (".wm-skill-meta.json", "manifest.json"):
-        f = pack / name
-        if f.is_file():
-            try:
-                return str(json.loads(f.read_text(encoding="utf-8")).get("version") or "")
-            except Exception:
-                pass
-    skill = pack / "SKILL.md"
-    if skill.is_file():
-        m = re.search(r"^version:\s*[\"']?([^\"'\n]+)", skill.read_text(encoding="utf-8"), re.M)
-        if m:
-            return m.group(1).strip()
-    return ""
+    return read_pack_version(root / pack_id)
 
 
 def is_disabled(root: Path, pack_id: str) -> bool:

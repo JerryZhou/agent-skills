@@ -7,16 +7,16 @@
 
 | id | code | cn | source |
 |----|------|----|--------|
-| `DPPR_10Y_MIN` | `$DPPR_10Y_MIN` | 近10年扣非净利润(TTM)最低 | screen_cn.xs |
-| `DPPR_3Y` | `$DPPR_3Y` | 近3年扣非净利润(TTM)序列 | screen_cn.xs |
-| `DPPR_3Y_MIN` | `$DPPR_3Y_MIN` | 近3年扣非净利润(TTM)最低 | screen_cn.xs |
-| `DPPR_3Y_TREND` | `$DPPR_3Y_TREND` | 近3年扣非净利润(TTM)趋势 | screen_cn.xs |
-| `DPPR_5Y_MIN` | `$DPPR_5Y_MIN` | 近5年扣非净利润(TTM)最低 | screen_cn.xs |
-| `DPPR_AR_10Y_MIN` | `$DPPR_AR_10Y_MIN` | 近10年扣非净利润(TTM)年化增长最低 | screen_cn.xs |
-| `DPPR_AR_3Y` | `$DPPR_AR_3Y` | 近3年扣非净利润(TTM)年化增长序列 | screen_cn.xs |
-| `DPPR_AR_3Y_MIN` | `$DPPR_AR_3Y_MIN` | 近3年扣非净利润(TTM)年化增长最低 | screen_cn.xs |
-| `DPPR_AR_3Y_TREND` | `$DPPR_AR_3Y_TREND` | 近3年扣非净利润(TTM)年化增长趋势 | screen_cn.xs |
-| `DPPR_AR_5Y_MIN` | `$DPPR_AR_5Y_MIN` | 近5年扣非净利润(TTM)年化增长最低 | screen_cn.xs |
+| `DPPR_10Y_MIN` | `$DPPR_10Y_MIN` |  | screen_cn.xs |
+| `DPPR_3Y` | `$DPPR_3Y` |  | screen_cn.xs |
+| `DPPR_3Y_MIN` | `$DPPR_3Y_MIN` |  | screen_cn.xs |
+| `DPPR_3Y_TREND` | `$DPPR_3Y_TREND` |  | screen_cn.xs |
+| `DPPR_5Y_MIN` | `$DPPR_5Y_MIN` |  | screen_cn.xs |
+| `DPPR_AR_10Y_MIN` | `$DPPR_AR_10Y_MIN` |  | screen_cn.xs |
+| `DPPR_AR_3Y` | `$DPPR_AR_3Y` |  | screen_cn.xs |
+| `DPPR_AR_3Y_MIN` | `$DPPR_AR_3Y_MIN` |  | screen_cn.xs |
+| `DPPR_AR_3Y_TREND` | `$DPPR_AR_3Y_TREND` |  | screen_cn.xs |
+| `DPPR_AR_5Y_MIN` | `$DPPR_AR_5Y_MIN` |  | screen_cn.xs |
 | `DPPR_TTM` | `$DPPR_TTM` |  | screen_cn.xs |
 | `ID_DPPR_TTM` | `$ID_DPPR_TTM` |  | screen_cn.xs |
 | `ID_GM_TTM` | `$ID_GM_TTM` |  | screen.xs |
@@ -29,9 +29,9 @@
 | `ID_TR_TTM` | `$ID_TR_TTM` |  | screen.xs |
 | `INDUSTRY_CUR` | `$INDUSTRY_CUR` |  | screen.xs |
 | `MV` | `$MV` |  | screen.xs |
-| `PCT_PB_TTM_10Y` | `$PCT_PB_TTM_10Y` | PB(TTM) 10年分位 | screen.xs |
-| `PCT_PB_TTM_3Y` | `$PCT_PB_TTM_3Y` | PB(TTM) 3年分位 | screen.xs |
-| `PCT_PB_TTM_5Y` | `$PCT_PB_TTM_5Y` | PB(TTM) 5年分位 | screen.xs |
-| `PCT_PE_TTM_10Y` | `$PCT_PE_TTM_10Y` | PE(TTM) 10年分位 | screen.xs |
-| `PCT_PE_TTM_3Y` | `$PCT_PE_TTM_3Y` | PE(TTM) 3年分位 | screen.xs |
-| `PCT_PE_TTM_5Y` | `$PCT_PE_TTM_5Y` | PE(TTM) 5年分位 | screen.xs |
+| `PCT_PB_TTM_10Y` | `$PCT_PB_TTM_10Y` |  | screen.xs |
+| `PCT_PB_TTM_3Y` | `$PCT_PB_TTM_3Y` |  | screen.xs |
+| `PCT_PB_TTM_5Y` | `$PCT_PB_TTM_5Y` |  | screen.xs |
+| `PCT_PE_TTM_10Y` | `$PCT_PE_TTM_10Y` |  | screen.xs |
+| `PCT_PE_TTM_3Y` | `$PCT_PE_TTM_3Y` |  | screen.xs |
+| `PCT_PE_TTM_5Y` | `$PCT_PE_TTM_5Y` |  | screen.xs |

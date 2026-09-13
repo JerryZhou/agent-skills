@@ -1,8 +1,8 @@
 ---
 name: wm-discover
 display_name: "统一发现"
-version: 1.4.1
-description: 用自然语言找公司/证券代码、行业与指数、SkillHub 技能、指标定义、XS 函数(vfunc，含 example_call_xs/call_spec 与域库 kline|notice|filings…；稳定域库已随 init 预载)/测试示例、选股字段。不确定 wm-* 时先 discover（domain=skill），再 wm.sh run。
+version: 1.4.3
+description: 用自然语言找公司/证券代码、行业与指数、SkillHub 技能、指标定义、XS 函数(vfunc，含 example_call_xs/call_spec 与域库 kline|notice|filings…；稳定域库已随 init 预载)/测试示例、选股字段。不确定 wm-* 时先 discover（domain=skill），再 wm.sh run。年报 PDF 原文/页码+quote → wm-report-extract。
 ---
 
 # 统一发现
@@ -17,9 +17,13 @@ description: 用自然语言找公司/证券代码、行业与指数、SkillHub 
 
 若在同一次 Session 内已通过以下自然语言映射定位到对应 Skill，**无需重复发起 discover**，直接调用对应 Skill：
 - 「代码 / 现价 / 摸底 / 一页纸 / 行情」 → `wm-company-card`
-- 「生意模式 / 靠什么赚钱 / 业务」 → `wm-company-business`
-- 「贵不贵 / 估值 / PE / PB / 市赚率」 → `wm-valuation`
+- 「生意模式 / 靠什么赚钱 / 业务」 → `wm-company-card` / `wm-operating-segments`
+- 「贵不贵 / 估值 / PE / PB / 市赚率」（**单票**） → `wm-company-card`
+- 「哪些行业便宜 / 行业贵不贵 / 申万一级横比」 → `wm-industry` `action=scan`
 - 「负债 / 债务风险 / 杠杆 / 爆雷」 → `wm-debt-safety`
+- 「年报 PDF 原文 / 全量提取核心包 / 深入解读要证据底座」 → `wm-report-extract`（默认全量 close；读 skill，勿 `wm.sh run`）
+- 「年报里的合同负债 / 前十大股东 / 分红方案 / 预收款项（要页码+quote）」 → `wm-report-extract`（按需 `resolve --need`）
+- 「年报列表 / 定期报告 PDF 链接」 → `wm-filings`
 - 「现金流 / 利润含金量 / 纸面利润」 → `wm-cashflow-quality`
 - 「分红 / 股息率 / 派息」 → `wm-dividend-quality`
 - 「公告 / 减持 / 回购 / 事件」 → `wm-notice-radar`

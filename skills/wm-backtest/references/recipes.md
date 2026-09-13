@@ -153,6 +153,7 @@ Scopes：`analysis:backtest:project:write` + `workspace:write` + `workspace:publ
 ## 6. equal_weight_buy_hold
 
 官方对照模板：宇宙内一次性等权建仓后持有（无再平衡）。`from_*` 未传 `template_unit_id` 时默认它。  
+`from_*` **不接受 `weights`**（未知权重会报 `VALIDATION_FAILED`）。自定义权重用 `run_custom` + `@pack:wm-backtest/examples/xs/target_weight/trading.xs`（示例 JSON：`examples/target_weight.json`）。  
 Override 示例见 §3；`universe_ref` 为空，显式 `universe` 直接生效。
 
 ### 坑

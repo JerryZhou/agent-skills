@@ -8,19 +8,19 @@
 | id | code | cn | source |
 |----|------|----|--------|
 | `TL_RATE` | `$TL_RATE` |  | screen.xs |
-| `TL_RATE_10Y_AVG` | `$TL_RATE_10Y_AVG` | 近10年资产负债率均值 | screen.xs |
-| `TL_RATE_10Y_AVG_LAST` | `$TL_RATE_10Y_AVG_LAST` | 近10年资产负债率均值 | screen.xs |
-| `TL_RATE_10Y_MIN` | `$TL_RATE_10Y_MIN` | 近10年资产负债率最低 | screen.xs |
-| `TL_RATE_10Y_MIN_LAST` | `$TL_RATE_10Y_MIN_LAST` | 近10年资产负债率最低 | screen.xs |
-| `TL_RATE_3Y` | `$TL_RATE_3Y` | 近3年资产负债率序列 | screen.xs |
-| `TL_RATE_3Y_AVG` | `$TL_RATE_3Y_AVG` | 近3年资产负债率均值 | screen.xs |
-| `TL_RATE_3Y_AVG_LAST` | `$TL_RATE_3Y_AVG_LAST` | 近3年资产负债率均值 | screen.xs |
-| `TL_RATE_3Y_LAST` | `$TL_RATE_3Y_LAST` | 近3年资产负债率序列 | screen.xs |
-| `TL_RATE_3Y_MIN` | `$TL_RATE_3Y_MIN` | 近3年资产负债率最低 | screen.xs |
-| `TL_RATE_3Y_MIN_LAST` | `$TL_RATE_3Y_MIN_LAST` | 近3年资产负债率最低 | screen.xs |
-| `TL_RATE_3Y_TREND` | `$TL_RATE_3Y_TREND` | 近3年资产负债率趋势 | screen.xs |
-| `TL_RATE_3Y_TREND_LAST` | `$TL_RATE_3Y_TREND_LAST` | 近3年资产负债率趋势 | screen.xs |
-| `TL_RATE_5Y_AVG` | `$TL_RATE_5Y_AVG` | 近5年资产负债率均值 | screen.xs |
-| `TL_RATE_5Y_AVG_LAST` | `$TL_RATE_5Y_AVG_LAST` | 近5年资产负债率均值 | screen.xs |
-| `TL_RATE_5Y_MIN` | `$TL_RATE_5Y_MIN` | 近5年资产负债率最低 | screen.xs |
-| `TL_RATE_5Y_MIN_LAST` | `$TL_RATE_5Y_MIN_LAST` | 近5年资产负债率最低 | screen.xs |
+| `TL_RATE_10Y_AVG` | `$TL_RATE_10Y_AVG` |  | screen.xs |
+| `TL_RATE_10Y_AVG_LAST` | `$TL_RATE_10Y_AVG_LAST` |  | screen.xs |
+| `TL_RATE_10Y_MIN` | `$TL_RATE_10Y_MIN` |  | screen.xs |
+| `TL_RATE_10Y_MIN_LAST` | `$TL_RATE_10Y_MIN_LAST` |  | screen.xs |
+| `TL_RATE_3Y` | `$TL_RATE_3Y` |  | screen.xs |
+| `TL_RATE_3Y_AVG` | `$TL_RATE_3Y_AVG` |  | screen.xs |
+| `TL_RATE_3Y_AVG_LAST` | `$TL_RATE_3Y_AVG_LAST` |  | screen.xs |
+| `TL_RATE_3Y_LAST` | `$TL_RATE_3Y_LAST` |  | screen.xs |
+| `TL_RATE_3Y_MIN` | `$TL_RATE_3Y_MIN` |  | screen.xs |
+| `TL_RATE_3Y_MIN_LAST` | `$TL_RATE_3Y_MIN_LAST` |  | screen.xs |
+| `TL_RATE_3Y_TREND` | `$TL_RATE_3Y_TREND` |  | screen.xs |
+| `TL_RATE_3Y_TREND_LAST` | `$TL_RATE_3Y_TREND_LAST` |  | screen.xs |
+| `TL_RATE_5Y_AVG` | `$TL_RATE_5Y_AVG` |  | screen.xs |
+| `TL_RATE_5Y_AVG_LAST` | `$TL_RATE_5Y_AVG_LAST` |  | screen.xs |
+| `TL_RATE_5Y_MIN` | `$TL_RATE_5Y_MIN` |  | screen.xs |
+| `TL_RATE_5Y_MIN_LAST` | `$TL_RATE_5Y_MIN_LAST` |  | screen.xs |
