@@ -1,8 +1,8 @@
 {
   "id": "wm-skillhub",
   "name": "SkillHub 管家",
-  "version": "1.1.16",
-  "changelog": "1.1.16：wm.sh run 增加 --market（写入 args.market）；宏观等市场级 skill 用 --market cn，不要 dummy --symbol。1.1.15：wm.sh run 自动带 skill_version；远端 skills/run 对照 catalog，落后则 skill_upgrade 提醒升级。1.1.14：强调 skills/run 业务参数必须嵌套在 args（扁平 action → ARGS_REQUIRED）。1.1.13：workspace pull/push 的 xs/eval args 用裸标识符（path/content），勿写 ARGS.*（ARGS 是 vfunc）。",
+  "version": "1.1.17",
+  "changelog": "1.1.17：Windows 安装用 curl.exe + Expand-Archive，写 meta 用无 BOM UTF-8（PS 5.1 的 Set-Content -Encoding UTF8 会带 BOM，bash 验收会误判缺包）。1.1.16：wm.sh run 增加 --market（写入 args.market）；宏观等市场级 skill 用 --market cn，不要 dummy --symbol。1.1.15：wm.sh run 自动带 skill_version；远端 skills/run 对照 catalog，落后则 skill_upgrade 提醒升级。1.1.14：强调 skills/run 业务参数必须嵌套在 args（扁平 action → ARGS_REQUIRED）。1.1.13：workspace pull/push 的 xs/eval args 用裸标识符（path/content），勿写 ARGS.*（ARGS 是 vfunc）。",
   "tier": 0,
   "visibility": "public",
   "description": "配置赢麻了 API 凭证、浏览官方技能与 Role 目录，或安装/更新其它官方技能与 Role 时使用。请先安装本技能，再由它管理其余条目。金融场景优先加载 wm-finance-router。",

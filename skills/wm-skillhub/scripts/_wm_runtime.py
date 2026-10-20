@@ -393,7 +393,8 @@ def parse_project_rel(rel: str) -> tuple[str, str, str] | None:
 def load_env_file(path: Path) -> None:
     if not path.is_file():
         return
-    for line in path.read_text(encoding="utf-8").splitlines():
+    # utf-8-sig: credentials.env 可能由 install.ps1（PS 5.1）写出，带 BOM
+    for line in path.read_text(encoding="utf-8-sig").splitlines():
         m = re.match(r"^\s*([^#=]+)=(.*)\s*$", line)
         if not m:
             continue
@@ -689,7 +690,7 @@ def read_pack_version(pack: Path) -> str:
         f = pack / name
         if f.is_file():
             try:
-                return str(json.loads(f.read_text(encoding="utf-8")).get("version") or "").strip()
+                return str(json.loads(f.read_text(encoding="utf-8-sig")).get("version") or "").strip()
             except Exception:
                 pass
     skill = pack / "SKILL.md"

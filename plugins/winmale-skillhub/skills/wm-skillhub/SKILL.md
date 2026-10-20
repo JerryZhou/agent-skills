@@ -1,7 +1,7 @@
 ---
 name: wm-skillhub
 display_name: "SkillHub 管家"
-version: 1.1.16
+version: 1.1.17
 description: 配置赢麻了 API 凭证、浏览官方技能与 Role 目录，或安装/更新其它官方技能与 Role 时使用。请先安装本技能，再由它管理其余条目。金融场景优先加载 wm-finance-router。
 ---
 
@@ -306,7 +306,7 @@ unzip -o /tmp/wm-skillhub.zip -d "<skills_root>"
 ### 安装某个技能
 
 **路径 A（推荐）：** catalog `pack_url` → `unzip -o` 到 skills 根 → 确认 `_skillhub_meta.json` + `agents/openai.yaml` → 写 `.wm-skill-meta.json` → 验收。  
-含 `references/` 的包 **必须**走路径 A。
+含 `references/` 的包 **必须**走路径 A。**Windows：** 下载/解压用 `curl.exe` + `Expand-Archive`（PS 5.1 的 `curl` 是 `Invoke-WebRequest` 别名）；写 meta **禁止** `Set-Content -Encoding UTF8` / `Out-File`（PS 5.1 带 BOM，bash 版验收会误判缺包，见 fb_18daa60e11279d16），用无 BOM 写出：`[System.IO.File]::WriteAllText($p, $json, (New-Object System.Text.UTF8Encoding($false)))`。
 
 **路径 B（无 shell）：**
 
@@ -321,7 +321,7 @@ unzip -o /tmp/wm-skillhub.zip -d "<skills_root>"
 **路径与 skill 不同，不要走 `install/skills/{id}`（会 404）。**
 
 1. 从 catalog `roles[]`（或 `GET /api/roles`）取 `id` / `pack_url` / `version`
-2. **路径 A（推荐）：** `pack_url` 或 `GET /api/roles/{id}/pack` → `unzip -o` 到 skills 根（顶层 `role-*/`）
+2. **路径 A（推荐）：** `pack_url` 或 `GET /api/roles/{id}/pack` → `unzip -o` 到 skills 根（顶层 `role-*/`）；Windows 用 `curl.exe` + `Expand-Archive`，写 meta 无 BOM（写法同「安装某个技能」路径 A）
 3. **路径 B（无 shell）：** 读 `https://open.winmale.com/api/install/roles/{id}`，复制围栏正文到 `SKILL.md`，并按合同写 references
 4. 写 `_skillhub_meta.json`、`agents/openai.yaml`、`.wm-skill-meta.json`（**必须**含 `"kind":"role"`）
 5. 验收门禁；**禁止**对 Role id 执行 skills run — Role 只编排 allowed_skills（用 `wm.sh run`）

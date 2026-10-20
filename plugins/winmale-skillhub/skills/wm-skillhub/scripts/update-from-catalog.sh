@@ -135,12 +135,12 @@ def local_ver(entry_id: str) -> str:
     skill = Path(skills_root) / entry_id / "SKILL.md"
     if meta.is_file():
         try:
-            return str(json.loads(meta.read_text(encoding="utf-8")).get("version") or "")
+            return str(json.loads(meta.read_text(encoding="utf-8-sig")).get("version") or "")
         except Exception:
             pass
     if man.is_file():
         try:
-            return str(json.loads(man.read_text(encoding="utf-8")).get("version") or "")
+            return str(json.loads(man.read_text(encoding="utf-8-sig")).get("version") or "")
         except Exception:
             pass
     if skill.is_file():

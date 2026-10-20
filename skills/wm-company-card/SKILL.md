@@ -1,7 +1,7 @@
 ---
 name: wm-company-card
 display_name: "公司卡片"
-version: 1.3.4
+version: 1.4.0
 description: 公司一页纸摸底/初印象/行情+基本面全景/快看（默认全模块 insight_pack；支持多票 symbols 批量）。深度研读走 Role，选股走 wm-screen-index。
 ---
 
@@ -17,6 +17,7 @@ description: 公司一页纸摸底/初印象/行情+基本面全景/快看（默
 - 「现在多少钱 / 今天涨跌」→ `include=quote` 或 `quote,kline`
 - 「看看走势 / 过往交易 / K线」→ 贴返回的 `company.kline` markdown；或只 `POST /v1/deeplinks/resolve`（不必跑全卡）
 - 只要部分模块 → 显式传 csv（如 `valuation,growth`）；`full`/`all` 与 default 相同
+- **这家公司挂了哪些海关商品 / 期货 / 宏观专栏 / 转债** → `include=links`（可与 `quote` 并列：`quote,links`）。默认全景包不含。只对返回里 role=primary 的项再取数：海关序列 `wm-data` `action=customs`，宏观与期货行情 `action=macro`，转债条款 `wm-cbond` `mode=stock`。转债这里只有代码和名称
 - **多只一起看**：`args.symbols`（≤50）—— **严格禁止循环单跑**，多票必须一次 `symbols` 批量下发。
   - **跨市场批量**（CN+HK+US 混装）：`skills/run` **自动按市场分 ExprEngine 再合并 `items`**（抹平 AT 跨市场行情/市值错乱）。响应可带 `markets_partitioned` / `cross_market_merged`。
   - 仍建议同市场一批更省 EC；其它未列入宿主分市场清单的技能若混市场异常，请**分市场各调一次**。
@@ -82,12 +83,13 @@ bash .cursor/skills/wm-skillhub/scripts/wm.sh run wm-company-card \
 
 | include | 含义 |
 |---------|------|
-| 省略 / `""` / `default` / `full` / `all` | **全模块**（quote+kline+identity+valuation+growth+quality+shareholder） |
+| 省略 / `""` / `default` / `full` / `all` | **全模块**（quote+kline+identity+valuation+growth+quality+shareholder），不含 links |
+| `links` | 海关商品、期货、宏观专栏、转债代码与名称。序列和条款另走 wm-data / wm-cbond |
 | `quote` | 现价量额市值 |
 | `quote,kline` | 再加均线与区间涨跌 |
 | `valuation,growth` 等 csv | 显式裁剪 |
 
-模块：`quote` `kline` `identity` `valuation` `growth` `quality` `shareholder`。
+模块：`quote` `kline` `identity` `valuation` `growth` `quality` `shareholder` `links`。`links` 不进默认全景。
 
 ## 数据有效时间（`freshness`）
 

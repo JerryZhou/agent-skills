@@ -1,7 +1,7 @@
 ---
 name: wm-screen-index
 display_name: "条件选股"
-version: 2.0.5
+version: 2.0.6
 description: 按条件筛一批股票（市盈率、ROE、股息、行业等）；也可列出/跑/保存我的策略。不是单只公司查询。字段对齐优先 indicators，内容穿透再用 search/discover；勿默认 discover 全库。今天/当日涨跌用 $PERCENT_LAST，勿用 $CHG_1D_LAST（EOD 截面）。
 ---
 

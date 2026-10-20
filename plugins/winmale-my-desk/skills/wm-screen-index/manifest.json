@@ -1,7 +1,8 @@
 {
   "id": "wm-screen-index",
   "name": "条件选股",
-  "version": "2.0.5",
+  "version": "2.0.6",
+  "changelog": "2.0.6：选股字段目录补市赚率、市销率分位（PCT_PR_BASE_3Y、PCT_PS_TTM_3Y 及 _LAST），字段数 490→494。",
   "tier": 1,
   "visibility": "opt_in",
   "description": "按条件筛一批股票（市盈率、ROE、股息、行业等）；也可列出/跑/保存我的策略。不是单只公司查询。字段对齐优先 indicators，内容穿透再用 search/discover；勿默认 discover 全库。今天/当日涨跌用 $PERCENT_LAST，勿用 $CHG_1D_LAST（EOD 截面）。",

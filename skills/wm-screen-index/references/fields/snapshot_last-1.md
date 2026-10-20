@@ -21,3 +21,5 @@
 | `PCT_PE_TTM_10Y_LAST` | `$PCT_PE_TTM_10Y_LAST` |  | screen.xs |
 | `PCT_PE_TTM_3Y_LAST` | `$PCT_PE_TTM_3Y_LAST` |  | screen.xs |
 | `PCT_PE_TTM_5Y_LAST` | `$PCT_PE_TTM_5Y_LAST` |  | screen.xs |
+| `PCT_PR_BASE_3Y_LAST` | `$PCT_PR_BASE_3Y_LAST` |  | screen.xs |
+| `PCT_PS_TTM_3Y_LAST` | `$PCT_PS_TTM_3Y_LAST` |  | screen.xs |

@@ -46,6 +46,7 @@ FIRST_BATCH = [
     "wm-reminder",
     "wm-screen-index",
     "wm-backtest",
+    "wm-report-extract",
 ]
 
 

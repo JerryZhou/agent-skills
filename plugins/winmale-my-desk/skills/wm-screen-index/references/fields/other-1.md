@@ -35,3 +35,5 @@
 | `PCT_PE_TTM_10Y` | `$PCT_PE_TTM_10Y` |  | screen.xs |
 | `PCT_PE_TTM_3Y` | `$PCT_PE_TTM_3Y` |  | screen.xs |
 | `PCT_PE_TTM_5Y` | `$PCT_PE_TTM_5Y` |  | screen.xs |
+| `PCT_PR_BASE_3Y` | `$PCT_PR_BASE_3Y` |  | screen.xs |
+| `PCT_PS_TTM_3Y` | `$PCT_PS_TTM_3Y` |  | screen.xs |

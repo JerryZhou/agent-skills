@@ -1,10 +1,11 @@
 {
   "generated_from": "/Users/jerry/yepless/end/skillhub",
-  "hub_version": "1.1.16",
+  "hub_version": "1.1.17",
   "plugins": {
-    "winmale-skillhub": "1.1.16",
+    "winmale-skillhub": "1.1.17",
     "winmale-stock-check": "1.4.3",
-    "winmale-my-desk": "2.0.5"
+    "winmale-my-desk": "2.0.6",
+    "winmale-report-extract": "0.8.1"
   },
   "skills": [
     "wm-backtest",
@@ -15,6 +16,7 @@
     "wm-dividend-quality",
     "wm-notice-radar",
     "wm-reminder",
+    "wm-report-extract",
     "wm-revenue-profit",
     "wm-screen-index",
     "wm-skillhub",

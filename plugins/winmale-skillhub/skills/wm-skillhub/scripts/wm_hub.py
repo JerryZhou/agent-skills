@@ -135,7 +135,7 @@ def cmd_rename(root: Path, old_id: str, new_id: str, *, keep_alias: bool = True)
     meta = dst / ".wm-skill-meta.json"
     if meta.is_file():
         try:
-            doc = json.loads(meta.read_text(encoding="utf-8"))
+            doc = json.loads(meta.read_text(encoding="utf-8-sig"))
             doc["id"] = new_id
             doc["renamed_from"] = old_id
             doc["renamed_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -183,7 +183,7 @@ def cmd_cleanup(root: Path) -> None:
         skill = p / "SKILL.md"
         if alias_meta.is_file():
             try:
-                doc = json.loads(alias_meta.read_text(encoding="utf-8"))
+                doc = json.loads(alias_meta.read_text(encoding="utf-8-sig"))
                 target = doc.get("alias_of")
                 if target and (root / target).is_dir():
                     shutil.rmtree(p)
