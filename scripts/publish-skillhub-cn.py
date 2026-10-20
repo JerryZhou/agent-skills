@@ -155,25 +155,43 @@ def ensure_login(cli: str, key: str, host: str) -> None:
 
 
 def api_get(host: str, path: str, key: str) -> Any:
+    status, payload = api_request(host, "GET", path, key)
+    if status >= 400:
+        detail = payload if isinstance(payload, str) else json.dumps(payload, ensure_ascii=False)
+        die(f"API GET {path} failed: HTTP {status}: {detail[:500]}")
+    return payload
+
+
+def api_request(host: str, method: str, path: str, key: str, body: Any = None) -> tuple[int, Any]:
     url = f"{host}{path}"
-    req = urllib.request.Request(
-        url,
-        headers={
-            "Authorization": f"Bearer {key}",
-            "Accept": "application/json",
-            "User-Agent": "agent-skills-publish-skillhub-cn/1.0",
-        },
-        method="GET",
-    )
+    data = None
+    headers = {
+        "Authorization": f"Bearer {key}",
+        "Accept": "application/json",
+        "User-Agent": "agent-skills-publish-skillhub-cn/1.0",
+    }
+    if body is not None:
+        data = json.dumps(body).encode("utf-8")
+        headers["Content-Type"] = "application/json"
+    req = urllib.request.Request(url, data=data, headers=headers, method=method)
     try:
         with urllib.request.urlopen(req, timeout=60) as resp:
-            body = resp.read().decode("utf-8")
-            return json.loads(body) if body else {}
+            raw = resp.read().decode("utf-8")
+            if not raw:
+                return resp.status, {}
+            try:
+                return resp.status, json.loads(raw)
+            except json.JSONDecodeError:
+                return resp.status, raw[:500]
     except urllib.error.HTTPError as e:
         detail = e.read().decode("utf-8", errors="replace")
-        die(f"API GET {path} failed: HTTP {e.code}: {detail[:500]}")
+        try:
+            parsed = json.loads(detail) if detail else {}
+        except json.JSONDecodeError:
+            parsed = detail[:500]
+        return e.code, parsed
     except Exception as e:  # noqa: BLE001
-        die(f"API GET {path} failed: {e}")
+        die(f"API {method} {path} failed: {e}")
 
 
 def parse_frontmatter(text: str) -> tuple[dict[str, Any], str]:
@@ -545,6 +563,78 @@ def publish_one(
     return ok, url, err or out
 
 
+def dashboard_items(payload: Any) -> list[dict[str, Any]]:
+    if isinstance(payload, list):
+        items = payload
+    elif isinstance(payload, dict):
+        data = payload.get("data", payload)
+        if isinstance(data, list):
+            items = data
+        elif isinstance(data, dict):
+            items = (
+                data.get("skills")
+                or data.get("items")
+                or data.get("list")
+                or data.get("records")
+                or []
+            )
+        else:
+            items = []
+    else:
+        items = []
+    return [it for it in items if isinstance(it, dict)]
+
+
+def skill_brief(it: dict[str, Any]) -> dict[str, Any]:
+    ns = it.get("namespace") if isinstance(it.get("namespace"), dict) else {}
+    return {
+        "slug": it.get("slug"),
+        "id": it.get("id") or it.get("skillId"),
+        "name": it.get("name") or it.get("displayName"),
+        "version": it.get("version") or it.get("latestVersion"),
+        "status": it.get("status") or it.get("reviewStatus") or it.get("visibility"),
+        "namespace": ns.get("handle") or ns.get("publicSlug") or ns.get("id"),
+        "url": it.get("url") or it.get("pageUrl"),
+    }
+
+
+def delist_remote(host: str, key: str, dash: Any, slugs: set[str], apply: bool) -> None:
+    items = dashboard_items(dash)
+    matched = []
+    for it in items:
+        slug = str(it.get("slug") or "").strip()
+        if slug in slugs:
+            matched.append(it)
+    print(f"delist targets={sorted(slugs)} matched={len(matched)} apply={apply}")
+    for it in matched:
+        print(json.dumps(skill_brief(it), ensure_ascii=False))
+    missing = slugs - {str(it.get("slug") or "") for it in matched}
+    if missing:
+        print(f"not on dashboard: {sorted(missing)}")
+    if not apply:
+        print("inspect only; pass --delist-apply to delete")
+        return
+    failures = 0
+    for it in matched:
+        slug = str(it.get("slug") or "").strip()
+        brief = skill_brief(it)
+        status, payload = api_request(
+            host, "DELETE", f"/api/v1/community/skills/{slug}", key
+        )
+        text = payload if isinstance(payload, str) else json.dumps(payload, ensure_ascii=False)
+        print(f"DELETE /api/v1/community/skills/{slug} -> {status} {text[:240]}")
+        removed = status < 300 and (
+            not isinstance(payload, dict)
+            or payload.get("ok") is not False
+            or payload.get("deleted") is True
+        )
+        if not removed:
+            failures += 1
+            print(f"FAILED {slug}")
+    if failures:
+        die(f"{failures} delist failure(s)", 2)
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description="Publish skills to SkillHub.cn")
     ap.add_argument("--dry-run", action="store_true")
@@ -555,6 +645,16 @@ def main() -> None:
         help="publish even when remote version == local",
     )
     ap.add_argument("--list", action="store_true", help="list local vs remote only")
+    ap.add_argument(
+        "--delist",
+        default="",
+        help="comma-separated remote slugs to inspect or delete",
+    )
+    ap.add_argument(
+        "--delist-apply",
+        action="store_true",
+        help="with --delist, delete those remote skills",
+    )
     ap.add_argument(
         "--batch",
         default="first",
@@ -586,6 +686,11 @@ def main() -> None:
     by_slug = {r["slug"]: r for r in remote_skills if r.get("slug")}
     by_display = {r["displayName"]: r for r in remote_skills if r.get("displayName")}
     print(f"remote_dashboard_skills={len(remote_skills)}")
+
+    if args.delist:
+        slugs = {s.strip() for s in args.delist.split(",") if s.strip()}
+        delist_remote(host, key, dash, slugs, apply=args.delist_apply)
+        return
 
     only = {s.strip() for s in args.only.split(",") if s.strip()}
     skill_dirs = discover_skill_dirs()

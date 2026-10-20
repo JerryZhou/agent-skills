@@ -34,7 +34,8 @@
       "url": "https://skillhub.cn/s/user_d83d7c97/wm-valuation",
       "published_at": "2026-08-11T07:37:33Z",
       "git_sha": "fd55a16",
-      "reviewStatus": "pending"
+      "status": "deleted",
+      "deleted_at": "2026-10-20T04:58:00Z"
     },
     "wm-skillhub": {
       "version": "1.1.17",
@@ -94,7 +95,26 @@
       "url": "https://skillhub.cn/s/user_d83d7c97/wm-company-business",
       "published_at": "2026-08-11T07:37:33Z",
       "git_sha": "fd55a16",
-      "reviewStatus": "approved"
+      "status": "deleted",
+      "deleted_at": "2026-10-20T04:58:00Z"
+    },
+    "wm-skill-analysis": {
+      "version": "1.0.0",
+      "displayName": "赢麻了-金融分析师(擅长基本面分析)",
+      "status": "deleted",
+      "deleted_at": "2026-10-20T04:58:00Z"
+    },
+    "wm-skill-fin-data": {
+      "version": "1.0.0",
+      "displayName": "金融大数据",
+      "status": "deleted",
+      "deleted_at": "2026-10-20T04:58:00Z"
+    },
+    "wm-skill-hub": {
+      "version": "1.0.0",
+      "displayName": "赢麻了-金融技能大管家(查数，分析，回测，选股)",
+      "status": "deleted",
+      "deleted_at": "2026-10-20T04:58:00Z"
     },
     "wm-cashflow-quality": {
       "version": "1.0.8",
